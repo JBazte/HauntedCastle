@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public Slider slider;
     Rigidbody2D rb;
     float vx = 0;
     public float jumpForce = 0;
@@ -15,14 +17,17 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        slider.maxValue = specialDuration;
     }
 
     private void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButton("Jump"))
         {
             GhostMode();
         }
+
+        slider.value = specialDuration;
     }
 
     private void FixedUpdate()
@@ -41,11 +46,10 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+
     void GhostMode()
     {
-
-
-        specialDuration -= 1 * Time.deltaTime;
+        specialDuration-= 1 *Time.deltaTime;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
