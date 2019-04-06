@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-
     public float SmoothTime = 0.3f;
     private Vector3 velocity = Vector3.zero;
     private static bool cameraExists;
@@ -15,7 +14,7 @@ public class CameraController : MonoBehaviour
     public BoxCollider2D boundBox;
     private Vector3 minBounds;
     private Vector3 maxBounds;
-    private Camera theCamera;
+    public Camera theCamera;
     private float halfHeight;
     private float halfWidth;
 
@@ -38,9 +37,10 @@ public class CameraController : MonoBehaviour
         minBounds = boundBox.bounds.min;
         maxBounds = boundBox.bounds.max;
         */
-        theCamera = GetComponent<Camera>();
+        theCamera = GetComponentInChildren<Camera>();
         halfHeight = theCamera.orthographicSize;
         halfWidth = halfHeight * Screen.width / Screen.height;
+
     }
 
     // Update is called once per frame

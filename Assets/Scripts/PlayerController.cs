@@ -14,8 +14,9 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private Vector2 moveXY;
     private SpriteRenderer sprite;
-    public ParticleSystem damagePrefab;
-    public CameraShake Camerashake;
+    public ParticleSystem trail;
+    public CameraShake cameraShake;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,11 +33,13 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(moveXY.x * moveSpeed, moveXY.y * moveSpeed);
             anim.SetBool("Moving", true);
+            trail.gameObject.SetActive(true);
         }
         else
         {
             rb.velocity = Vector2.zero;
             anim.SetBool("Moving", false);
+            trail.gameObject.SetActive(false);
         }
 
         if (Input.GetKey(KeyCode.D))
@@ -52,7 +55,6 @@ public class PlayerController : MonoBehaviour
         {
             GhostMode();
         }
-        if(damagePrefab)
         slider.value = specialDuration;
     }
 
@@ -71,7 +73,7 @@ public class PlayerController : MonoBehaviour
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
             Vector3 pos = contact.point;
             //Instantiate(damagePrefab, pos, rot);
-            StartCoroutine(Camerashake.Shake(.3f, .2f));
+            StartCoroutine(cameraShake.Shake(.3f, .2f));
             
         }
     }
