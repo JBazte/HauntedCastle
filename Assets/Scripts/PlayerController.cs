@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 moveXY;
     private SpriteRenderer sprite;
     public ParticleSystem damagePrefab;
+    public CameraShake Camerashake;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,7 +70,8 @@ public class PlayerController : MonoBehaviour
             ContactPoint2D contact = collision.contacts[0];
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
             Vector3 pos = contact.point;
-            Instantiate(damagePrefab, pos, rot);
+            //Instantiate(damagePrefab, pos, rot);
+            StartCoroutine(Camerashake.Shake(.3f, .2f));
             
         }
     }
