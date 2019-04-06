@@ -131,6 +131,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vx: 0
+  distancex: 0
+  distancey: 0
   speed: 3
   hasChangedVel: 0
   damage: 5
@@ -715,6 +717,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vx: 0
+  distancex: 0
+  distancey: 0
   speed: 3
   hasChangedVel: 0
   damage: 5
@@ -912,6 +916,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vx: 1
+  distancex: 0
+  distancey: 0
   speed: 3
   hasChangedVel: 0
   damage: 10
@@ -972,6 +978,27 @@ Transform:
   m_Father: {fileID: 620030496}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1288097336 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4042951095113826531, guid: 767f7180dc67d004ab2929cda5b89cb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4042951094610698772}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1288097337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288097336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34017393ecb919c41bae583463b3ebd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  specialDuration: 100
+  trail: {fileID: 1447535306}
+  health: 29
 --- !u!1 &1289656159
 GameObject:
   m_ObjectHideFlags: 0
@@ -6613,6 +6640,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2169fce4108b0884d8352772030a9ae3, type: 3}
+--- !u!198 &1447535306 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4042951094698275822, guid: 767f7180dc67d004ab2929cda5b89cb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4042951094610698772}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1470484259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6764,6 +6797,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vx: 0
+  distancex: 0
+  distancey: 0
   speed: 3
   hasChangedVel: 0
   damage: 20
@@ -6825,6 +6860,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Slider
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505882304192928595, guid: 75c4c671edf46cf4f92c0bb0d5d376f7,
+        type: 3}
+      propertyPath: m_MinValue
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505882304192928595, guid: 75c4c671edf46cf4f92c0bb0d5d376f7,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7505882304192928595, guid: 75c4c671edf46cf4f92c0bb0d5d376f7,
+        type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 1739229216}
+    - target: {fileID: 7505882304192928595, guid: 75c4c671edf46cf4f92c0bb0d5d376f7,
+        type: 3}
+      propertyPath: m_Transition
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7505882304192928604, guid: 75c4c671edf46cf4f92c0bb0d5d376f7,
         type: 3}
@@ -6930,26 +6985,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7505882304192928595, guid: 75c4c671edf46cf4f92c0bb0d5d376f7,
-        type: 3}
-      propertyPath: m_MinValue
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7505882304192928595, guid: 75c4c671edf46cf4f92c0bb0d5d376f7,
-        type: 3}
-      propertyPath: m_Value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7505882304192928595, guid: 75c4c671edf46cf4f92c0bb0d5d376f7,
-        type: 3}
-      propertyPath: m_TargetGraphic
-      value: 
-      objectReference: {fileID: 1739229216}
-    - target: {fileID: 7505882304192928595, guid: 75c4c671edf46cf4f92c0bb0d5d376f7,
-        type: 3}
-      propertyPath: m_Transition
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7505882304233846711, guid: 75c4c671edf46cf4f92c0bb0d5d376f7,
         type: 3}
@@ -7304,5 +7339,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 570778361, guid: 767f7180dc67d004ab2929cda5b89cb6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 767f7180dc67d004ab2929cda5b89cb6, type: 3}

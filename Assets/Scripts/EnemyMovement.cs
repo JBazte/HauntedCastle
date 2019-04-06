@@ -5,16 +5,27 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public int vx = 0;
+
+    private float posz;
+    [SerializeField] private float distancex;
+    [SerializeField] private float distancey;
     int vy = 0;
     public int speed = 3;
     Rigidbody2D rb;
     public bool hasChangedVel = false;
     private PlayerController player;
+    private GameObject playerGO;
     [SerializeField] int damage;
+
+    public float smoothTime = 10.0f;
+    private Vector3 smoothVelocity = Vector3.zero;
+
     void Start()
     {
+        posz = transform.position.z;
         rb = GetComponent<Rigidbody2D>();
         vx = 1;
+        playerGO = FindObjectOfType <PlayerController>().gameObject;
         player = FindObjectOfType<PlayerController>();
     }
 
@@ -22,7 +33,19 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector2(vx, vy)* speed;
+        
+        if (Vector3.Distance(transform.position, playerGO.transform.position) > 10 ) {
+            rb.velocity = new Vector2(vx, vy) * speed;
+        } else
+        {
+            //transform.LookAt(new Vector3(playerGO.transform.position.x,transform.position.y, playerGO.transform.position.z));
+
+            // Vector2.MoveTowards(transform.position, PlayerGO.transform.position, speed);
+            transform.position = Vector3.SmoothDamp(transform.position, playerGO.transform.position, ref smoothVelocity, smoothTime);
+
+
+        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
