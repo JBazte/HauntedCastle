@@ -38,7 +38,7 @@ public class CameraController : MonoBehaviour
         minBounds = boundBox.bounds.min;
         maxBounds = boundBox.bounds.max;
         */
-        theCamera = GetComponent<Camera>();
+        theCamera = GetComponentInChildren<Camera>();
         halfHeight = theCamera.orthographicSize;
         halfWidth = halfHeight * Screen.width / Screen.height;
     }

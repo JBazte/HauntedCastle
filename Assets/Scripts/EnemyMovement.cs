@@ -9,6 +9,8 @@ public class EnemyMovement : MonoBehaviour
     public int speed = 20;
     Rigidbody2D rb;
     public bool hasChangedVel = false;
+    public PlayerController player;
+    [SerializeField] int damage;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,7 +30,9 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-     
+
+        if(collision.gameObject.name == "Player" ) {
+        }
         if (collision.gameObject.tag == "Test" && !hasChangedVel) { 
         vx = -vx;
         vy = -vy;
