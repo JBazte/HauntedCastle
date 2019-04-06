@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private Vector2 moveXY;
     private SpriteRenderer sprite;
-
+    public ParticleSystem damagePrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
         {
             GhostMode();
         }
-        
+        if(damagePrefab)
         slider.value = specialDuration;
     }
 
@@ -59,5 +59,19 @@ public class PlayerController : MonoBehaviour
     {
         specialDuration-= 1 *Time.deltaTime;
     }
-   
+
+    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == ("Enemy"))
+        {
+            
+            ContactPoint2D contact = collision.contacts[0];
+            Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+            Vector3 pos = contact.point;
+            Instantiate(damagePrefab, pos, rot);
+            
+        }
+    }
+
 }

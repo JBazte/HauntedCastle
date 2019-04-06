@@ -32,7 +32,7 @@ public class EnemyMovement : MonoBehaviour
         if (collision.gameObject.tag == "Test" && !hasChangedVel) { 
         vx = -vx;
         vy = -vy;
-            
+            transform.localScale = new Vector3(-transform.localScale.x,1,1);
         }
     }
 }
