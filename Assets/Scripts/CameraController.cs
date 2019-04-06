@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     private static bool cameraExists;
     private PlayerController Player;
-    private bool bounds;
+    //private bool bounds;
     //public Vector3 MinCameraPos;
     //public Vector3 MaxCameraPos;
     public BoxCollider2D boundBox;
@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         Player = FindObjectOfType<PlayerController>();
-        bounds = true;
+        //bounds = true;
         DontDestroyOnLoad(transform.gameObject);
         if (!cameraExists)
         {

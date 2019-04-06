@@ -7,8 +7,6 @@ public class PlayerController : MonoBehaviour
 {
     public Slider slider;
     private Rigidbody2D rb;
-    private float vx = 0;
-    private float vy = 0;
     private int moveSpeed = 5;
     public float specialDuration = 100;
     private Animator anim;
@@ -17,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem trail;
     private CameraShake cameraShake;
     public int health;
+    public GameObject BulletPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +56,7 @@ public class PlayerController : MonoBehaviour
         {
             GhostMode();
         }
+
         slider.value = specialDuration;
             
     }
