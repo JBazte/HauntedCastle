@@ -9,18 +9,19 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private float vx = 0;
     private float vy = 0;
-    public int moveSpeed = 10;
+    private int moveSpeed = 5;
     public float specialDuration = 100;
     private Animator anim;
     private Vector2 moveXY;
     private SpriteRenderer sprite;
     public ParticleSystem trail;
-    public CameraShake cameraShake;
+    private CameraShake cameraShake;
     public int health;
 
     // Start is called before the first frame update
     void Start()
     {
+        cameraShake = FindObjectOfType<CameraShake>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
@@ -60,7 +61,7 @@ public class PlayerController : MonoBehaviour
             
     }
 
-    void GhostMode()
+    public void GhostMode()
     {
         specialDuration-= 1 *Time.deltaTime;
     }
@@ -69,7 +70,7 @@ public class PlayerController : MonoBehaviour
     {
         health -= damage;
     }
-    
+
     void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == ("Enemy"))

@@ -14,7 +14,7 @@ public class CameraController : MonoBehaviour
     public BoxCollider2D boundBox;
     private Vector3 minBounds;
     private Vector3 maxBounds;
-    public Camera theCamera;
+    private Camera theCamera;
     private float halfHeight;
     private float halfWidth;
 
