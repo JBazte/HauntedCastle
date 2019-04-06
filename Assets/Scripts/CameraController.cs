@@ -21,7 +21,8 @@ public class CameraController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Player = FindObjectOfType<PlayerController>();
+        
+        Player = FindObjectOfType <PlayerController>();
         bounds = true;
         DontDestroyOnLoad(transform.gameObject);
         if (!cameraExists)
