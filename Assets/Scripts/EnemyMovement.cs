@@ -9,19 +9,16 @@ public class EnemyMovement : MonoBehaviour
     public int speed = 20;
     Rigidbody2D rb;
     public bool hasChangedVel = false;
-    public PlayerController player;
+    private PlayerController player;
     [SerializeField] int damage;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         vx = 1;
+        player = FindObjectOfType<PlayerController>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     private void FixedUpdate()
     {
@@ -32,6 +29,7 @@ public class EnemyMovement : MonoBehaviour
     {
 
         if(collision.gameObject.name == "Player" ) {
+            player.DealDamage(damage);
         }
         if (collision.gameObject.tag == "Test" && !hasChangedVel) { 
         vx = -vx;
