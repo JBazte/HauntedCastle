@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sprite;
     public ParticleSystem trail;
     public CameraShake cameraShake;
+    public int health;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour
             GhostMode();
         }
         slider.value = specialDuration;
+            
     }
 
     void GhostMode()
@@ -63,6 +65,10 @@ public class PlayerController : MonoBehaviour
         specialDuration-= 1 *Time.deltaTime;
     }
 
+    public void DealDamage(int damage)
+    {
+        health -= damage;
+    }
     
     void OnCollisionEnter2D(Collision2D collision)
     {
