@@ -6,7 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
     public int vx = 0;
     int vy = 0;
-    public int speed = 20;
+    public int speed = 3;
     Rigidbody2D rb;
     public bool hasChangedVel = false;
     private PlayerController player;
