@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public Slider slider;
+    private Slider sliderBar;
     private Rigidbody2D rb;
     private int moveSpeed = 5;
     public float specialDuration = 100;
@@ -15,16 +15,16 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem trail;
     private CameraShake cameraShake;
     public int health;
-    public GameObject BulletPrefab;
 
     // Start is called before the first frame update
     void Start()
     {
+        sliderBar = FindObjectOfType<Slider>();
         cameraShake = FindObjectOfType<CameraShake>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        slider.maxValue = specialDuration;
+        sliderBar.maxValue = specialDuration;
     }
 
     private void Update()
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
             GhostMode();
         }
 
-        slider.value = specialDuration;
+        sliderBar.value = specialDuration;
             
     }
 
