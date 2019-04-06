@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     public float SmoothTime = 0.3f;
     private Vector3 velocity = Vector3.zero;
     private static bool cameraExists;
-    private PlayerController Player;
+    private PlayerController thePlayer;
     //private bool bounds;
     //public Vector3 MinCameraPos;
     //public Vector3 MaxCameraPos;
@@ -21,7 +21,8 @@ public class CameraController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        Player = FindObjectOfType<PlayerController>();
+        thePlayer = FindObjectOfType<PlayerController>();
+        transform.position = new Vector3(thePlayer.transform.position.x, thePlayer.transform.position.y, transform.position.z);
         //bounds = true;
         DontDestroyOnLoad(transform.gameObject);
         if (!cameraExists)
@@ -52,8 +53,8 @@ public class CameraController : MonoBehaviour
             minBounds = boundBox.bounds.min;
             maxBounds = boundBox.bounds.max;
         }*/
-        float posX = Mathf.SmoothDamp(transform.position.x, Player.transform.position.x, ref velocity.x, SmoothTime);
-        float posY = Mathf.SmoothDamp(transform.position.y, Player.transform.position.y, ref velocity.y, SmoothTime);
+        float posX = Mathf.SmoothDamp(transform.position.x, thePlayer.transform.position.x, ref velocity.x, SmoothTime);
+        float posY = Mathf.SmoothDamp(transform.position.y, thePlayer.transform.position.y, ref velocity.y, SmoothTime);
         transform.position = new Vector3(posX, posY, transform.position.z);
         /*if (bounds)
         {

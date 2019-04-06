@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 3663703478465565355}
   - component: {fileID: 5413104181857787467}
   - component: {fileID: 2435820645665588128}
+  - component: {fileID: 6705717461715584429}
+  - component: {fileID: 7014752270366685078}
   m_Layer: 0
   m_Name: BlueBullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,3 +100,33 @@ MonoBehaviour:
   alphaThreshold: 0.035
   drawOutside: 0
   enableInstancing: 0
+--- !u!58 &6705717461715584429
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065430632051088863}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0006246567, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.21170425
+--- !u!114 &7014752270366685078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065430632051088863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d06a88719fc5f6f4482aa9e8ee7e7272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destoyParticles: {fileID: 3074514112359980920, guid: 88165e483b93cac40a0e84c4c8eeb114,
+    type: 3}
