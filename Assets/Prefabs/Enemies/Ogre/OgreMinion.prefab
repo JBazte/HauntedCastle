@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 556824923155051458}
   - component: {fileID: 556824923155051459}
   - component: {fileID: 556824923155051456}
-  - component: {fileID: 5837864358308537586}
-  - component: {fileID: 8305051510008745451}
-  - component: {fileID: 10071849687179969}
+  - component: {fileID: 1208877804}
+  - component: {fileID: 1208877805}
+  - component: {fileID: 1208877806}
   m_Layer: 0
   m_Name: OgreMinion
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,7 +102,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!50 &5837864358308537586
+--- !u!50 &1208877804
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -123,7 +123,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &8305051510008745451
+--- !u!61 &1208877805
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,7 +136,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.17249799, y: -0.24045181}
+  m_Offset: {x: 0.14239645, y: -0.2486496}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -147,9 +147,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0877328, y: 1.5190964}
+  m_Size: {x: 1.0713892, y: 1.4806528}
   m_EdgeRadius: 0
---- !u!114 &10071849687179969
+--- !u!114 &1208877806
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,3 +164,5 @@ MonoBehaviour:
   vx: 1
   speed: 3
   hasChangedVel: 0
+  damage: 10
+  Health: 30

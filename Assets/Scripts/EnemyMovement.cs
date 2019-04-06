@@ -11,6 +11,8 @@ public class EnemyMovement : MonoBehaviour
     public bool hasChangedVel = false;
     private PlayerController player;
     [SerializeField] int damage;
+    public int Health;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -18,7 +20,13 @@ public class EnemyMovement : MonoBehaviour
         player = FindObjectOfType<PlayerController>();
     }
 
-    
+    private void Update()
+    {
+        if (Health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void FixedUpdate()
     {
@@ -27,14 +35,25 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
         if(collision.gameObject.name == "Player" ) {
             player.DealDamage(damage);
         }
+
         if (collision.gameObject.tag == "Test" && !hasChangedVel) { 
         vx = -vx;
         vy = -vy;
             transform.localScale = new Vector3(-transform.localScale.x,1,1);
+        }
+
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Bullet")
+        {
+            Health -= 10;
+            Destroy(other.gameObject);
         }
     }
 }
