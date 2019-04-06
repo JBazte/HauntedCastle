@@ -22,7 +22,7 @@ public class Bullets : MonoBehaviour
         if (thisBulletobject != null)
         {
             Vector3 transformation = new Vector3(0, 0, 0);
-            float transformationVelocity = bulletVelocity;
+            float transformationVelocity = bulletVelocity * Time.deltaTime;
             switch (direction)
             {
                 case PlayerShoot.SHOOTING_DIRECTION.UP:

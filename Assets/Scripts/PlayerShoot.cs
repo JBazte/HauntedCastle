@@ -52,6 +52,10 @@ public class PlayerShoot : MonoBehaviour
                 //Agregar a projectiles a borrar
                 deleteList.Add(goBullet);
             }
+            else
+            {
+                goBullet.Update();
+            }
         }
         //Borrar todos los projectiles que corresponda
         foreach (Bullets delete in deleteList)
