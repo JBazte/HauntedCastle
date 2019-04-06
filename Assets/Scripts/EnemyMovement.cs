@@ -5,11 +5,8 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public int vx = 0;
-
-    private float posz;
-    [SerializeField] private float distancex;
-    [SerializeField] private float distancey;
-    int vy = 0;
+    
+    
     public int speed = 3;
     Rigidbody2D rb;
     public bool hasChangedVel = false;
@@ -21,12 +18,12 @@ public class EnemyMovement : MonoBehaviour
     public float smoothTime = 10.0f;
     private Vector3 smoothVelocity = Vector3.zero;
 
-    public int Health;
+    [SerializeField] private int Health;
 
 
     void Start()
     {
-        posz = transform.position.z;
+        
         rb = GetComponent<Rigidbody2D>();
         vx = 1;
         playerGO = FindObjectOfType <PlayerController>().gameObject;
@@ -37,7 +34,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (Health <= 0)
         {
-            Destroy(gameObject);
+           Destroy(gameObject);
         }
     }
 
@@ -45,15 +42,10 @@ public class EnemyMovement : MonoBehaviour
     {
         
         if (Vector3.Distance(transform.position, playerGO.transform.position) > 10 ) {
-            rb.velocity = new Vector2(vx, vy) * speed;
+            rb.velocity = new Vector2(vx, 0) * speed;
         } else
-        {
-            //transform.LookAt(new Vector3(playerGO.transform.position.x,transform.position.y, playerGO.transform.position.z));
-
-            // Vector2.MoveTowards(transform.position, PlayerGO.transform.position, speed);
+        {          
             transform.position = Vector3.SmoothDamp(transform.position, playerGO.transform.position, ref smoothVelocity, smoothTime);
-
-
         }
         
     }
@@ -66,7 +58,7 @@ public class EnemyMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Test" && !hasChangedVel) { 
         vx = -vx;
-        vy = -vy;
+        
             transform.localScale = new Vector3(-transform.localScale.x,1,1);
         }
 

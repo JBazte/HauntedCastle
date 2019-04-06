@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1737131798}
   - component: {fileID: 1737131797}
   - component: {fileID: 1737131793}
+  - component: {fileID: 7217482844225730560}
   m_Layer: 0
   m_Name: NecromancerBoss
   m_TagString: Enemy
@@ -165,4 +166,19 @@ MonoBehaviour:
   speed: 3
   hasChangedVel: 0
   damage: 20
+  smoothTime: 10
   Health: 100
+--- !u!114 &7217482844225730560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6648304991223156216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b0149abf2aed01449d76fb357f149ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instancePrefab: {fileID: 503104836462023225, guid: 2ffcf79c4839c3a4e9220a75a0b46d45,
+    type: 3}
