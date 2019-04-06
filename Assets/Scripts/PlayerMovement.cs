@@ -8,10 +8,9 @@ public class PlayerMovement : MonoBehaviour
     public Slider slider;
     Rigidbody2D rb;
     float vx = 0;
-    public float jumpForce = 0;
+    float vy = 0;
     public int speed = 10;
     public float specialDuration = 100;
-    [SerializeField] bool isGrounded;
    
     // Start is called before the first frame update
     void Start()
@@ -33,17 +32,10 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         vx = Input.GetAxis("Horizontal");
+        vy = Input.GetAxis("Vertical");
 
-
-        rb.velocity = new Vector2(vx, 0) * speed;
-
-
-        if (Input.GetAxis("Vertical") > 0 && isGrounded)
-        {
-            rb.AddForce(Vector2.up * jumpForce);
-        }
-
-        
+        rb.velocity = new Vector2(vx, vy) * speed;      
+   
     }
 
 
@@ -51,25 +43,5 @@ public class PlayerMovement : MonoBehaviour
     {
         specialDuration-= 1 *Time.deltaTime;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Platform")
-        {
-            isGrounded = true;
-        }
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Platform")
-        {
-            isGrounded = false;
-        }
-    }
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Platform")
-        {
-            isGrounded = true;
-        }
-    }
+   
 }
