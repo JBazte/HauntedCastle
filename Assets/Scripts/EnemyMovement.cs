@@ -66,9 +66,19 @@ public class EnemyMovement : MonoBehaviour
                 flashActive = false;
             }
             flashCounter -= Time.deltaTime;
+
+            
         }
-    
-}
+        if (transform.position.x > playerGO.transform.position.x)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+
+    }
 
     private void FixedUpdate()
     {
