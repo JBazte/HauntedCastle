@@ -165,5 +165,6 @@ MonoBehaviour:
   speed: 3
   hasChangedVel: 0
   damage: 1
+  flashLength: 1
   smoothTime: 1
   Health: 30

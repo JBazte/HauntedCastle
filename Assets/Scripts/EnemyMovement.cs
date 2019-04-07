@@ -14,16 +14,18 @@ public class EnemyMovement : MonoBehaviour
     private GameObject playerGO;
     [SerializeField] int damage;
 
-
+    private bool flashActive;
+    public float flashLength;
+    private float flashCounter;
     public float smoothTime = 1f;
     private Vector3 smoothVelocity = Vector3.zero;
-
+    private SpriteRenderer enemyRenderer;
     [SerializeField] private int Health;
 
 
     void Start()
     {
-        
+        enemyRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         vx = 1;
         playerGO = FindObjectOfType <PlayerController>().gameObject;
@@ -36,7 +38,32 @@ public class EnemyMovement : MonoBehaviour
         {
            Destroy(gameObject);
         }
-    }
+        if (flashActive)
+        {
+            if (flashCounter > flashLength * .66f)
+            {
+                enemyRenderer.color = Color.red;
+            }
+            else if (flashCounter > flashLength * .33f)
+            {
+                enemyRenderer.color = Color.white;
+                enemyRenderer.color = new Color(enemyRenderer.color.r, enemyRenderer.color.g, enemyRenderer.color.b, 1f);
+            }
+            else if (flashCounter > 0f)
+            {
+                enemyRenderer.color = Color.red;
+                enemyRenderer.color = new Color(enemyRenderer.color.r, enemyRenderer.color.g, enemyRenderer.color.b, 0f);
+            }
+            else
+            {
+                enemyRenderer.color = Color.white;
+                enemyRenderer.color = new Color(enemyRenderer.color.r, enemyRenderer.color.g, enemyRenderer.color.b, 1f);
+                flashActive = false;
+            }
+            flashCounter -= Time.deltaTime;
+        }
+    
+}
 
     private void FixedUpdate()
     {
@@ -70,7 +97,10 @@ public class EnemyMovement : MonoBehaviour
         if (other.gameObject.tag == "Bullet")
         {
             Health -= 10;
+            flashActive = true;
+            flashCounter = flashLength;
             Destroy(other.gameObject);
+
         }
     }
 }
