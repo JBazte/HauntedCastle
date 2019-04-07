@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 978247915193650831}
   - component: {fileID: 978247915193650830}
   - component: {fileID: 978247915193650829}
+  - component: {fileID: 7395327549019817661}
   m_Layer: 0
   m_Name: EnemyDamageTake
   m_TagString: Untagged
@@ -4698,3 +4699,16 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &7395327549019817661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978247915193650828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52b196848a079064a82d7d8d8de522fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDestroy: 1

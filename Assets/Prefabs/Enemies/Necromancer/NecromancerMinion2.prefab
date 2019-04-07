@@ -117,10 +117,12 @@ MonoBehaviour:
   vx: 0
   speed: 3
   hasChangedVel: 0
-  damage: 5
+  damage: 3
   flashLength: 0.3
   smoothTime: 1
   Health: 15
+  damagePrefab: {fileID: 978247915193650830, guid: aa150f5e5fb7571409e0c383715e7463,
+    type: 3}
 --- !u!61 &7596518239176022131
 BoxCollider2D:
   m_ObjectHideFlags: 0
