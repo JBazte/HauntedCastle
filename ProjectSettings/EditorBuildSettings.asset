@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 9ad43fc5a86636c4d9ca3b2ef1781a01
@@ -18,9 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Credits.unity
     guid: afb8b45ca6fa5d2489d9de928b495faf
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: f5aa534bfcf68d642b90794c643746fd
-  - enabled: 1
     path: Assets/Scenes/RescueRed.unity
     guid: 3e3366f9d1e1f1046835d0f690e09c9b
   - enabled: 1
@@ -30,11 +24,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Level2.unity
     guid: c1fd861eb03b9124c9b7ae21ba6b5cbc
   - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 1495b5e2721cc8143963340f17a10067
+  - enabled: 1
     path: Assets/Scenes/Level3.unity
-    guid: 7270812b3e7f406419267ce852742a7b
+    guid: 8609c9e925db02e4286832877df8bac3
   - enabled: 1
     path: Assets/Scenes/Level4.unity
-    guid: d9e6a06234b815a4eb68e7c09e79e80f
+    guid: 3e718e75d2aa8514899af05bab876b78
   - enabled: 1
     path: Assets/Scenes/RescueOrange.unity
     guid: b3d19c54c3e299e42b08f7f46519e841

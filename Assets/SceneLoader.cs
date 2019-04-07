@@ -18,7 +18,6 @@ public class SceneLoader : MonoBehaviour
     
     IEnumerator Fading()
     {
-        yield return new WaitForSeconds(1f);
         anim.SetBool("Fade", true);
         yield return new WaitUntil(() => black.color.a == 1);
         SceneManager.LoadScene(LevelToLoad);
