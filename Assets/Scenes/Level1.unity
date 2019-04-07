@@ -7140,8 +7140,36 @@ PrefabInstance:
       propertyPath: hearts.Array.data[4]
       value: 
       objectReference: {fileID: 66216941}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6674200962971601191, guid: 767f7180dc67d004ab2929cda5b89cb6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 767f7180dc67d004ab2929cda5b89cb6, type: 3}
+--- !u!1 &4042951094610698773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4042951095113826531, guid: 767f7180dc67d004ab2929cda5b89cb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4042951094610698772}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4042951094610698774 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4042951094698275822, guid: 767f7180dc67d004ab2929cda5b89cb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4042951094610698772}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4042951094610698775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4042951094610698773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34017393ecb919c41bae583463b3ebd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  specialDuration: 100
+  trail: {fileID: 4042951094610698774}
+  health: 100
 --- !u!1001 &4171164705073159952
 PrefabInstance:
   m_ObjectHideFlags: 0

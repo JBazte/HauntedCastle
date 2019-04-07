@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 4042951095113826540}
   - component: {fileID: 4042951095113826538}
   - component: {fileID: 570778360}
-  - component: {fileID: 6674200962971601191}
   - component: {fileID: 5860954495876386583}
   - component: {fileID: 1288097337}
+  - component: {fileID: 4969459090638988085}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -166,21 +166,6 @@ MonoBehaviour:
     type: 3}
   ShotDelay: 20
   currentDamage: 10
---- !u!114 &6674200962971601191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4042951095113826531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9d5676707f60af45b6db38674cc6c42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  specialDuration: 100
-  trail: {fileID: 4042951094698275822}
-  health: 100
 --- !u!114 &5860954495876386583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +208,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &4969459090638988085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4042951095113826531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34017393ecb919c41bae583463b3ebd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  specialDuration: 100
+  trail: {fileID: 4042951094698275822}
+  health: 100
 --- !u!1001 &5735745849244711965
 PrefabInstance:
   m_ObjectHideFlags: 0
