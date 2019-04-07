@@ -179,7 +179,7 @@ MonoBehaviour:
   vx: 0
   speed: 3
   hasChangedVel: 0
-  damage: 3
+  damage: 2
   flashLength: 0.3
   smoothTime: 1
   Health: 50
