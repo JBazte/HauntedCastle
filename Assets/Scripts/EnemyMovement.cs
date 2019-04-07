@@ -21,7 +21,7 @@ public class EnemyMovement : MonoBehaviour
     private Vector3 smoothVelocity = Vector3.zero;
     private SpriteRenderer enemyRenderer;
     [SerializeField] private int Health;
-
+    public ParticleSystem damagePrefab;
 
     void Start()
     {
@@ -100,6 +100,10 @@ public class EnemyMovement : MonoBehaviour
             flashActive = true;
             flashCounter = flashLength;
             Destroy(other.gameObject);
+
+
+            
+            Instantiate(damagePrefab, transform.position, Quaternion.identity);
 
         }
     }
