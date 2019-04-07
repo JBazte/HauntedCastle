@@ -118,7 +118,7 @@ MonoBehaviour:
   speed: 3
   hasChangedVel: 0
   damage: 5
-  smoothTime: 10
+  smoothTime: 1
   Health: 15
 --- !u!61 &7596518239176022131
 BoxCollider2D:

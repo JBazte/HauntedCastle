@@ -7,7 +7,7 @@ public class EnemyMovement : MonoBehaviour
     public int vx = 0;
     
     
-    public int speed = 3;
+    public float speed = 3f;
     Rigidbody2D rb;
     public bool hasChangedVel = false;
     private PlayerController player;
@@ -15,7 +15,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] int damage;
 
 
-    public float smoothTime = 10.0f;
+    public float smoothTime = 1f;
     private Vector3 smoothVelocity = Vector3.zero;
 
     [SerializeField] private int Health;
@@ -44,7 +44,7 @@ public class EnemyMovement : MonoBehaviour
         if (Vector3.Distance(transform.position, playerGO.transform.position) > 10 ) {
             rb.velocity = new Vector2(vx, 0) * speed;
         } else
-        {          
+        {
             transform.position = Vector3.SmoothDamp(transform.position, playerGO.transform.position, ref smoothVelocity, smoothTime);
         }
         
