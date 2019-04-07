@@ -6,14 +6,14 @@ public class CameraController : MonoBehaviour
 {
     public float SmoothTime = 0.3f;
     private Vector3 velocity = Vector3.zero;
-    private static bool cameraExists;
+    //private static bool cameraExists;
     private PlayerController thePlayer;
     //private bool bounds;
     //public Vector3 MinCameraPos;
     //public Vector3 MaxCameraPos;
-    public BoxCollider2D boundBox;
-    private Vector3 minBounds;
-    private Vector3 maxBounds;
+    //public BoxCollider2D boundBox;
+    //private Vector3 minBounds;
+    //private Vector3 maxBounds;
     private Camera theCamera;
     private float halfHeight;
     private float halfWidth;
@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
         thePlayer = FindObjectOfType<PlayerController>();
         transform.position = new Vector3(thePlayer.transform.position.x, thePlayer.transform.position.y, transform.position.z);
         //bounds = true;
-        DontDestroyOnLoad(transform.gameObject);
+        /*DontDestroyOnLoad(transform.gameObject);
         if (!cameraExists)
         {
             cameraExists = true;
@@ -33,7 +33,7 @@ public class CameraController : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }
+        } */
         /*
         minBounds = boundBox.bounds.min;
         maxBounds = boundBox.bounds.max;
@@ -64,10 +64,10 @@ public class CameraController : MonoBehaviour
         float clampedY = Mathf.Clamp(transform.position.y, minBounds.y + halfHeight, maxBounds.y - halfHeight);
         transform.position = new Vector3(clampedX, clampedY, transform.position.z);*/
     }
-    public void SetBounds(BoxCollider2D newBounds)
+    /*public void SetBounds(BoxCollider2D newBounds)
     {
         boundBox = newBounds;
         minBounds = boundBox.bounds.min;
         maxBounds = boundBox.bounds.max;
-    }
+    }*/
 }

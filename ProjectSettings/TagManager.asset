@@ -8,6 +8,7 @@ TagManager:
   - Test
   - Enemy
   - Bullet
+  - Item
   layers:
   - Default
   - TransparentFX

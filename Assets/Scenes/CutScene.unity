@@ -2456,6 +2456,7 @@ MonoBehaviour:
   LevelToLoad: RescueRed
   black: {fileID: 1413213392}
   anim: {fileID: 1413213391}
+  timeToLoad: 50
 --- !u!4 &1817372381
 Transform:
   m_ObjectHideFlags: 0

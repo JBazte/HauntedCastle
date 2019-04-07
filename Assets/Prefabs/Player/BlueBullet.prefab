@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2435820645665588128}
   - component: {fileID: 6705717461715584429}
   - component: {fileID: 7014752270366685078}
+  - component: {fileID: 8911464143008435407}
   m_Layer: 0
   m_Name: BlueBullet
   m_TagString: Bullet
@@ -130,3 +131,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destoyParticles: {fileID: 3074514112359980920, guid: 88165e483b93cac40a0e84c4c8eeb114,
     type: 3}
+--- !u!114 &8911464143008435407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065430632051088863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52b196848a079064a82d7d8d8de522fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDestroy: 2

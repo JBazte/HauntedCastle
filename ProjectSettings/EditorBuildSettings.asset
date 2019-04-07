@@ -23,4 +23,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RescueRed.unity
     guid: 3e3366f9d1e1f1046835d0f690e09c9b
+  - enabled: 1
+    path: Assets/Scenes/RescueYellow.unity
+    guid: 1359aa0e2b4377a47a2997762f191951
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: c1fd861eb03b9124c9b7ae21ba6b5cbc
+  - enabled: 1
+    path: Assets/Scenes/Level3.unity
+    guid: 7270812b3e7f406419267ce852742a7b
+  - enabled: 1
+    path: Assets/Scenes/Level4.unity
+    guid: d9e6a06234b815a4eb68e7c09e79e80f
+  - enabled: 1
+    path: Assets/Scenes/RescueOrange.unity
+    guid: b3d19c54c3e299e42b08f7f46519e841
+  - enabled: 1
+    path: Assets/Scenes/RescuePink.unity
+    guid: 9ba6c78db6bb1ed45ba824f62b6f9896
   m_configObjects: {}
