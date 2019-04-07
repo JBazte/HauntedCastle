@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     private Slider sliderBar;
     private Rigidbody2D rb;
     private int moveSpeed = 5;
-    public float specialDuration = 100;
+    private float specialDuration = 10;
     private Animator anim;
     private Vector2 moveXY;
     private SpriteRenderer sprite;
