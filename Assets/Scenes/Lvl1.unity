@@ -185,7 +185,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300012, guid: ff16ef4e3631496428b95d2b25cef885, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -383,7 +383,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300024, guid: ff16ef4e3631496428b95d2b25cef885, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -779,7 +779,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300036, guid: ff16ef4e3631496428b95d2b25cef885, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -976,7 +976,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 704763283}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.95, y: 2.53, z: 0}
+  m_LocalPosition: {x: 2.42, y: 4.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1417,7 +1417,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 587c3570f71a890448aa3b80983ef337, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1510,7 +1510,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300002, guid: 2ef2dae0eb52b4441bcf24ba8b7a3202, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1568,7 +1568,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1276924308}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 1eda9e1e3b4254542a98c7688dc36dcf, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 161ea6c2bcf6570438e5e18239c49541, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -1604,6 +1604,46 @@ PlayableDirector:
     value: {fileID: 1176588540}
   - key: {fileID: 114616510391090512, guid: 1eda9e1e3b4254542a98c7688dc36dcf, type: 2}
     value: {fileID: 1517313737}
+  - key: {fileID: 114713161249912350, guid: 161ea6c2bcf6570438e5e18239c49541, type: 2}
+    value: {fileID: 94809114}
+  - key: {fileID: 114363903830924250, guid: 161ea6c2bcf6570438e5e18239c49541, type: 2}
+    value: {fileID: 121298783}
+  - key: {fileID: 114356161869366160, guid: 161ea6c2bcf6570438e5e18239c49541, type: 2}
+    value: {fileID: 2049538787}
+  - key: {fileID: 114447473040917696, guid: 161ea6c2bcf6570438e5e18239c49541, type: 2}
+    value: {fileID: 1518129050}
+  - key: {fileID: 114884580889757980, guid: 161ea6c2bcf6570438e5e18239c49541, type: 2}
+    value: {fileID: 613742700}
+  - key: {fileID: 114128600137157534, guid: 161ea6c2bcf6570438e5e18239c49541, type: 2}
+    value: {fileID: 7130555}
+  - key: {fileID: 114710151434640372, guid: 161ea6c2bcf6570438e5e18239c49541, type: 2}
+    value: {fileID: 1189579775}
+  - key: {fileID: 114916860678069770, guid: 161ea6c2bcf6570438e5e18239c49541, type: 2}
+    value: {fileID: 957911716}
+  - key: {fileID: 114301675608735990, guid: 161ea6c2bcf6570438e5e18239c49541, type: 2}
+    value: {fileID: 1495391947}
+  - key: {fileID: 114315782347580152, guid: 161ea6c2bcf6570438e5e18239c49541, type: 2}
+    value: {fileID: 1992839286}
+  - key: {fileID: 114346034520798616, guid: 161ea6c2bcf6570438e5e18239c49541, type: 2}
+    value: {fileID: 374942738}
+  - key: {fileID: 114622821210856548, guid: 161ea6c2bcf6570438e5e18239c49541, type: 2}
+    value: {fileID: 335504363}
+  - key: {fileID: 114565418733024328, guid: 161ea6c2bcf6570438e5e18239c49541, type: 2}
+    value: {fileID: 254594938}
+  - key: {fileID: 114006196218117738, guid: 161ea6c2bcf6570438e5e18239c49541, type: 2}
+    value: {fileID: 1176588540}
+  - key: {fileID: 114616510391090512, guid: 161ea6c2bcf6570438e5e18239c49541, type: 2}
+    value: {fileID: 1517313737}
+  - key: {fileID: 114333149247948100, guid: 93b4e4c51db8a7341b63dae57ad18b3b, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 114666476081755516, guid: 93b4e4c51db8a7341b63dae57ad18b3b, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 114805734113689502, guid: 93b4e4c51db8a7341b63dae57ad18b3b, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 114836685806166768, guid: 93b4e4c51db8a7341b63dae57ad18b3b, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: 114087154794621798, guid: 93b4e4c51db8a7341b63dae57ad18b3b, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1276924311
@@ -1773,7 +1813,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 2ef2dae0eb52b4441bcf24ba8b7a3202, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1892,7 +1932,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300002, guid: ff16ef4e3631496428b95d2b25cef885, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2090,7 +2130,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300056, guid: ff16ef4e3631496428b95d2b25cef885, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
