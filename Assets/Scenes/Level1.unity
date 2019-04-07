@@ -6816,33 +6816,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!198 &1821276073 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4042951094698275822, guid: 767f7180dc67d004ab2929cda5b89cb6,
-    type: 3}
-  m_PrefabInstance: {fileID: 4042951094610698772}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1847646283 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4042951095113826531, guid: 767f7180dc67d004ab2929cda5b89cb6,
-    type: 3}
-  m_PrefabInstance: {fileID: 4042951094610698772}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1847646284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1847646283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34017393ecb919c41bae583463b3ebd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  specialDuration: 100
-  trail: {fileID: 1821276073}
-  health: 100
 --- !u!1 &1869268335
 GameObject:
   m_ObjectHideFlags: 0
@@ -7142,11 +7115,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 6674200962971601191, guid: 767f7180dc67d004ab2929cda5b89cb6,
-        type: 3}
-      propertyPath: health
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 5860954495876386583, guid: 767f7180dc67d004ab2929cda5b89cb6,
         type: 3}
       propertyPath: hearts.Array.data[0]
@@ -7172,8 +7140,7 @@ PrefabInstance:
       propertyPath: hearts.Array.data[4]
       value: 
       objectReference: {fileID: 66216941}
-    m_RemovedComponents:
-    - {fileID: 6674200962971601191, guid: 767f7180dc67d004ab2929cda5b89cb6, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 767f7180dc67d004ab2929cda5b89cb6, type: 3}
 --- !u!1001 &4171164705073159952
 PrefabInstance:

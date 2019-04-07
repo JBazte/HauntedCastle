@@ -180,7 +180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   specialDuration: 100
   trail: {fileID: 4042951094698275822}
-  health: 5
+  health: 100
 --- !u!114 &5860954495876386583
 MonoBehaviour:
   m_ObjectHideFlags: 0
