@@ -68,7 +68,7 @@ public class EnemyMovement : MonoBehaviour
     private void FixedUpdate()
     {
         
-        if (Vector3.Distance(transform.position, playerGO.transform.position) > 10 ) {
+        if (Vector3.Distance(transform.position, playerGO.transform.position) > 5f ) {
             rb.velocity = new Vector2(vx, 0) * speed;
         } else
         {
