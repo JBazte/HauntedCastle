@@ -71,18 +71,22 @@ public class PlayerController : MonoBehaviour
         health -= damage;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if(collision.gameObject.tag == ("Enemy"))
+        if(other.gameObject.tag == ("Enemy"))
         {
-            
-            ContactPoint2D contact = collision.contacts[0];
+            ContactPoint2D contact = other.contacts[0];
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
             Vector3 pos = contact.point;
             //Instantiate(damagePrefab, pos, rot);
-            StartCoroutine(cameraShake.Shake(.3f, .2f));
-            
+            StartCoroutine(cameraShake.Shake(.3f, .2f));       
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.tag == "Item"){
+            health += 1;
+            Destroy(other.gameObject);
+        }
+    }
 }

@@ -9,6 +9,7 @@ public class SceneTimer : MonoBehaviour
     public string LevelToLoad;
     public Image black;
     public Animator anim;
+    public float timeToLoad;
 
     // Use this for initialization
     void Start () {
@@ -16,7 +17,7 @@ public class SceneTimer : MonoBehaviour
     }
     IEnumerator Fading()
     {
-        yield return new WaitForSeconds(50f);
+        yield return new WaitForSeconds(timeToLoad);
         anim.SetBool("Fade", true);
         yield return new WaitUntil(() => black.color.a == 1);
         SceneManager.LoadScene(LevelToLoad);
