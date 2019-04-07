@@ -6388,7 +6388,7 @@ MonoBehaviour:
   m_Version: 2
   m_OpenClipPreExtrapolation: 1
   m_OpenClipPostExtrapolation: 1
-  m_OpenClipOffsetPosition: {x: 4.93, y: 7.31, z: 0}
+  m_OpenClipOffsetPosition: {x: 5.07, y: 7.58, z: 0}
   m_OpenClipOffsetEulerAngles: {x: -0, y: 0, z: 0}
   m_OpenClipTimeOffset: 0
   m_OpenClipRemoveOffset: 0
