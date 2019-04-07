@@ -38,4 +38,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RescuePink.unity
     guid: 9ba6c78db6bb1ed45ba824f62b6f9896
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: e8d515d633248674fb515bcf4620fda0
+  - enabled: 1
+    path: Assets/Scenes/Lose.unity
+    guid: 2a53a2d6d28598e4e9fa4326df3137f3
   m_configObjects: {}

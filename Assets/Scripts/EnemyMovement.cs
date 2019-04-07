@@ -22,14 +22,19 @@ public class EnemyMovement : MonoBehaviour
     private SpriteRenderer enemyRenderer;
     [SerializeField] private int Health;
     public ParticleSystem damagePrefab;
+    public EffectsManager sound;
+    private float timerToHit;
+    private CameraShake cameraShake;
 
     void Start()
     {
+        cameraShake = FindObjectOfType<CameraShake>();
         enemyRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         vx = 1;
         playerGO = FindObjectOfType <PlayerController>().gameObject;
         player = FindObjectOfType<PlayerController>();
+        sound = FindObjectOfType<EffectsManager>();
     }
 
     private void Update()
@@ -79,10 +84,6 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.name == "Player" ) {
-            player.DealDamage(damage);
-        }
-
         if (collision.gameObject.tag == "Test" && !hasChangedVel) { 
         vx = -vx;
         
@@ -90,6 +91,27 @@ public class EnemyMovement : MonoBehaviour
         }
 
         
+    }
+
+    void OnCollisionStay2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Player" ) {
+            timerToHit -= Time.deltaTime;
+            if(timerToHit < 1){
+            player.DealDamage(damage);
+            sound.HurtPlayer.Play();
+            StartCoroutine(cameraShake.Shake(.3f, .2f));       
+            timerToHit = 1.8f;
+        }
+        }
+
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "Player"){
+            timerToHit = 0;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

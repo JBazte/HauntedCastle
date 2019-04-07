@@ -1831,7 +1831,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'YOU
 
-    WIN'
+    LOSE'
 --- !u!222 &2025420678
 CanvasRenderer:
   m_ObjectHideFlags: 0

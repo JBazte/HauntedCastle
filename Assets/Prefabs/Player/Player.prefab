@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 4969459090638988085}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,6 +187,8 @@ MonoBehaviour:
   - {fileID: 0}
   fullHeart: {fileID: 21300000, guid: b108b451391a4b94d8e25a7a25c5e663, type: 3}
   emptyHeart: {fileID: 21300000, guid: 969527588d1b0df42aa110a2574dd7a7, type: 3}
+  black: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!50 &1288097337
 Rigidbody2D:
   serializedVersion: 4

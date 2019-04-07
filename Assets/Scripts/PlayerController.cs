@@ -79,7 +79,6 @@ public class PlayerController : MonoBehaviour
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
             Vector3 pos = contact.point;
             //Instantiate(damagePrefab, pos, rot);
-            StartCoroutine(cameraShake.Shake(.3f, .2f));       
         }
     }
 

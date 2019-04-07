@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealthBar : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class PlayerHealthBar : MonoBehaviour
     public Sprite fullHeart;
     public Sprite emptyHeart;
     private PlayerController thePlayer;
+    public Image black;
+    public Animator anim;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +23,9 @@ public class PlayerHealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (thePlayer.health < 1){
+            StartCoroutine(Fading());
+        }
 
         if(thePlayer.health > numHearts)
         {
@@ -46,5 +52,14 @@ public class PlayerHealthBar : MonoBehaviour
                 hearts[i].enabled = false;
             }
         }
+    }
+    
+    IEnumerator Fading()
+    {
+        anim.SetBool("Fade", true);
+        yield return new WaitUntil(() => black.color.a == 1);
+        SceneManager.LoadScene("Lose");
+        anim.SetBool("Fade", false);
+        thePlayer.gameObject.SetActive(false);
     }
 }
