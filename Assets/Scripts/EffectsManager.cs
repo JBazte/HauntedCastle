@@ -6,5 +6,6 @@ public class EffectsManager : MonoBehaviour {
 
     public AudioSource HurtEnemy;
     public AudioSource HurtPlayer;
+    public AudioSource HelathUp;
 
 }

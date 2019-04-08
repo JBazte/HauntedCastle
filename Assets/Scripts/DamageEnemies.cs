@@ -9,7 +9,6 @@ public class DamageEnemies : MonoBehaviour
 
     private void Start() {
         sound = FindObjectOfType<EffectsManager>();
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)

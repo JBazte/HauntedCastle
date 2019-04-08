@@ -14,6 +14,10 @@ public class SceneLoader : MonoBehaviour
         if(other.gameObject.tag == "Player"){
             StartCoroutine(Fading());
         }
+
+        if(other.gameObject.tag == "Ghost"){
+            StartCoroutine(Fading());
+        }
     }
     
     IEnumerator Fading()

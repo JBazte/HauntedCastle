@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Bullet
   - Item
+  - Fill
+  - Ghost
   layers:
   - Default
   - TransparentFX

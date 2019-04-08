@@ -22,7 +22,7 @@ public class EnemyMovement : MonoBehaviour
     private SpriteRenderer enemyRenderer;
     [SerializeField] private int Health;
     public ParticleSystem damagePrefab;
-    public EffectsManager sound;
+    private EffectsManager sound;
     private float timerToHit;
     private CameraShake cameraShake;
 

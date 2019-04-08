@@ -13,28 +13,30 @@ public class PlayerHealthBar : MonoBehaviour
     private PlayerController thePlayer;
     public Image black;
     public Animator anim;
+    private HealthManager thePlayerHealth;
 
     // Start is called before the first frame update
     void Start()
     {
+        thePlayerHealth = FindObjectOfType<HealthManager>();
         thePlayer = GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (thePlayer.health < 1){
+        if (thePlayerHealth.playerHelath < 1){
             StartCoroutine(Fading());
         }
 
-        if(thePlayer.health > numHearts)
+        if(thePlayerHealth.playerHelath > numHearts)
         {
-            thePlayer.health = numHearts;
+            thePlayerHealth.playerHelath = numHearts;
         }
 
         for (int i = 0; i < hearts.Length; i++)
         {
-            if (i < thePlayer.health)
+            if (i < thePlayerHealth.playerHelath)
             {
                 hearts[i].sprite = fullHeart;
             }
@@ -57,7 +59,7 @@ public class PlayerHealthBar : MonoBehaviour
     IEnumerator Fading()
     {
         anim.SetBool("Fade", true);
-        yield return new WaitForSeconds(0f);
+        yield return new WaitUntil(() => black.color.a == 1);
         SceneManager.LoadScene("Lose");
         anim.SetBool("Fade", false);
         thePlayer.gameObject.SetActive(false);
