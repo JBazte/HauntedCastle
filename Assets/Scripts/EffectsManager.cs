@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EffectsManager : MonoBehaviour {
 
-    public AudioSource EnemyKill;
+    public AudioSource HurtEnemy;
     public AudioSource HurtPlayer;
-    
+
 }

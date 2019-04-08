@@ -1153,7 +1153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glowColor: {r: 0.72156864, g: 0.7176471, b: 0.27058825, a: 1}
-  glowBrightness: 1.5
+  glowBrightness: 1.4
   outlineWidth: 1
   alphaThreshold: 0.01
   drawOutside: 0
@@ -2453,7 +2453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c29e7ee17a8d6489353fa925ae7c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelToLoad: RescueRed
+  LevelToLoad: Level1
   black: {fileID: 1413213392}
   anim: {fileID: 1413213391}
   timeToLoad: 50

@@ -1095,9 +1095,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7c29e7ee17a8d6489353fa925ae7c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelToLoad: 
+  LevelToLoad: Level2
   black: {fileID: 805353126}
   anim: {fileID: 805353125}
+  timeToLoad: 10
 --- !u!4 &1830849988
 Transform:
   m_ObjectHideFlags: 0

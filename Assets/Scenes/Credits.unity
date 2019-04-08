@@ -971,7 +971,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '[INSERT TEXT] '
+  m_Text: PROGRAMMER AND DESIGNER
 --- !u!222 &951265657
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1799,7 +1799,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: '[INSERT TEXT] '
+  m_Text: PROGRAMMER AND CUTSCENES
 --- !u!222 &2097426129
 CanvasRenderer:
   m_ObjectHideFlags: 0
