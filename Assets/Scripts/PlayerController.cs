@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private EffectsManager sound;
     private SpriteRenderer playerRenderer;
     private HealthManager thePlayerHealth;
-    private bool isReady;
+    public bool isReady;
     private GameObject colorBar;
     private Image spriteColorBar;
     public GameObject HUD;
@@ -136,6 +136,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            this.gameObject.tag = "Player";
             isReady = false;
             playerRenderer.color = new Color(255f, 255f, 255f, 255f);
         }

@@ -39,8 +39,6 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        
-
         if (Health <= 0)
         {
            Destroy(gameObject);
@@ -109,6 +107,7 @@ public class EnemyMovement : MonoBehaviour
     void OnCollisionStay2D(Collision2D other)
     {
         if(other.gameObject.tag == "Player" ) {
+            this.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
             timerToHit -= Time.deltaTime;
             if(timerToHit < 1){
             thePlayer.DealDamage(damage);
@@ -127,8 +126,13 @@ public class EnemyMovement : MonoBehaviour
     void OnCollisionExit2D(Collision2D other)
     {
         if(other.gameObject.tag == "Player"){
+            this.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
             timerToHit = 0;
         }
+        
+        if(other.gameObject.tag == "Ghost"){
+            this.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
+        }        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -147,9 +151,10 @@ public class EnemyMovement : MonoBehaviour
         }        
     }
 
-    private void OnTriggerStay2D(Collider2D other) {
-        
+    private void OnTriggerStay2D(Collider2D other)
+    {
         if(other.gameObject.tag == "Player" ) {
+            this.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
             timerToHit -= Time.deltaTime;
             if(timerToHit < 1){
             thePlayer.DealDamage(damage);
@@ -164,11 +169,13 @@ public class EnemyMovement : MonoBehaviour
 }
 }
     private void OnTriggerExit2D(Collider2D other) {
+
         if(other.gameObject.tag == "Ghost"){
             this.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
         }
-        
+
         if(other.gameObject.tag == "Player"){
+            this.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
             timerToHit = 0;
         }
     }

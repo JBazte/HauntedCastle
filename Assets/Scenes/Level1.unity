@@ -124,11 +124,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: NecromancerBoss
       objectReference: {fileID: 0}
-    - target: {fileID: 6648304991223156216, guid: cab858e0d10be17459aae910ddac8dd4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6648304991223156223, guid: cab858e0d10be17459aae910ddac8dd4,
         type: 3}
       propertyPath: m_LocalPosition.x
