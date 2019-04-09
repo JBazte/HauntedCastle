@@ -18,14 +18,12 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer playerRenderer;
     private HealthManager thePlayerHealth;
     private bool isReady;
-    private bool flashActive;
-    private float flashLength = 5f;
-    private float flashCounter;
     private GameObject colorBar;
     private Image spriteColorBar;
     public GameObject HUD;
     private bool isActive;
     public bool paused;
+    private bool effectActive;
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +42,7 @@ public class PlayerController : MonoBehaviour
         isReady = true;
         isActive = false;
         paused = false;
+        effectActive = false;
     }
 
     private void Update()
@@ -109,6 +108,11 @@ public class PlayerController : MonoBehaviour
             spriteColorBar.color = Color.green;
         }
 
+        if(Input.GetButtonDown("Jump") && isReady && effectActive == false)
+        {
+            StartCoroutine(waitForSound());
+        }
+
         if (Input.GetButton("Jump") && isReady)
         {
             GhostMode();
@@ -134,8 +138,6 @@ public class PlayerController : MonoBehaviour
         {
             isReady = false;
             playerRenderer.color = new Color(255f, 255f, 255f, 255f);
-            flashActive = true;
-            flashCounter = flashLength;
         }
     }
 
@@ -155,6 +157,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    IEnumerator waitForSound()
+    {
+        sound.SpecialAbility.Play();
+        while (sound.SpecialAbility.isPlaying)
+        {
+            effectActive = true;
+            yield return null;
+        }
+        effectActive = false;
+    }
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Item"){
             thePlayerHealth.playerHelath += 1;

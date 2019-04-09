@@ -45,9 +45,10 @@ public class MenuControllerEnd : MonoBehaviour {
 
     public IEnumerator RestartDelay()
     {
-        yield return new WaitForSecondsRealtime(.8f);
-        System.Diagnostics.Process.Start(Application.dataPath.Replace("_Data", ".exe"));
-        Application.Quit();
+        anim.SetBool("Fade", true);
+        yield return new WaitUntil(() => black.color.a == 1);
+        anim.SetBool("Fade", false);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public IEnumerator Delay()

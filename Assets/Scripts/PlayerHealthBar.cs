@@ -63,5 +63,6 @@ public class PlayerHealthBar : MonoBehaviour
         SceneManager.LoadScene("Lose");
         anim.SetBool("Fade", false);
         thePlayer.gameObject.SetActive(false);
+        Destroy(thePlayerHealth.gameObject);
     }
 }

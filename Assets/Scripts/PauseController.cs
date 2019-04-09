@@ -1,13 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PauseController : MonoBehaviour {
 
     private PlayerController thePlayer;
+    public Image black;
+    public Animator anim;
+    private HealthManager thePlayerHealth;
 
     private void Start() {
+        thePlayerHealth = FindObjectOfType<HealthManager>();
         thePlayer = FindObjectOfType<PlayerController>();
     }
     public void Reanudar()
@@ -27,9 +32,12 @@ public class PauseController : MonoBehaviour {
 
     public IEnumerator RestartDelay()
     {
-        yield return new WaitForSecondsRealtime(.8f);
-        System.Diagnostics.Process.Start(Application.dataPath.Replace("_Data", ".exe"));
-        Application.Quit();
+        anim.SetBool("Fade", true);
+        yield return new WaitUntil(() => black.color.a == 1);
+        anim.SetBool("Fade", false);
+        Time.timeScale = 1f;
+        Destroy(thePlayerHealth.gameObject);
+        SceneManager.LoadScene("MainMenu");
     }
 
     public IEnumerator ExitDelay()

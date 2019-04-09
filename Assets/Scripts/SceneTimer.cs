@@ -10,11 +10,16 @@ public class SceneTimer : MonoBehaviour
     public Image black;
     public Animator anim;
     public float timeToLoad;
-
+    private HealthManager thePlayerHealth;
     // Use this for initialization
     void Start () {
+        thePlayerHealth = FindObjectOfType<HealthManager>();
         StartCoroutine(Fading());
+        if(LevelToLoad == "Win"){
+            Destroy(thePlayerHealth.gameObject);
+        }
     }
+
     IEnumerator Fading()
     {
         yield return new WaitForSeconds(timeToLoad);

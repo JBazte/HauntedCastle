@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class LoadScene : MonoBehaviour {
 
     public string LevelToLoad;
-    //public string exitPoint;
-    private PlayerController thePlayer;
     public Image black;
     public Animator anim;
     private bool time;
@@ -16,7 +14,6 @@ public class LoadScene : MonoBehaviour {
     // Use this for initialization
     void Start () {
         SceneManager.sceneLoaded += OnLevelFinishedLoading;
-        thePlayer = FindObjectOfType<PlayerController>();
     }
 
     // Update is called once per frame
@@ -32,7 +29,6 @@ public class LoadScene : MonoBehaviour {
         {
             time = true;
             StartCoroutine(Fading());
-            //thePlayer.startPoint = exitPoint;
         }
     }
 
@@ -40,7 +36,7 @@ public class LoadScene : MonoBehaviour {
     {
         GameObject[] objects = scene.GetRootGameObjects();
     }
-    IEnumerator Fading()
+    public IEnumerator Fading()
     {
         anim.SetBool("Fade", true);
         yield return new WaitUntil(() => black.color.a == 1);

@@ -10,7 +10,7 @@ public class EnemyMovement : MonoBehaviour
     public float speed = 3f;
     Rigidbody2D rb;
     public bool hasChangedVel = false;
-    private PlayerController player;
+    private PlayerController thePlayer;
     private GameObject playerGO;
     [SerializeField] int damage;
 
@@ -33,12 +33,14 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         vx = 1;
         playerGO = FindObjectOfType <PlayerController>().gameObject;
-        player = FindObjectOfType<PlayerController>();
+        thePlayer = FindObjectOfType<PlayerController>();
         sound = FindObjectOfType<EffectsManager>();
     }
 
     private void Update()
     {
+        
+
         if (Health <= 0)
         {
            Destroy(gameObject);
@@ -99,8 +101,9 @@ public class EnemyMovement : MonoBehaviour
         
             transform.localScale = new Vector3(-transform.localScale.x,1,1);
         }
-
-        
+        if(collision.gameObject.tag == "Ghost"){
+            this.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+        }        
     }
 
     void OnCollisionStay2D(Collision2D other)
@@ -108,13 +111,17 @@ public class EnemyMovement : MonoBehaviour
         if(other.gameObject.tag == "Player" ) {
             timerToHit -= Time.deltaTime;
             if(timerToHit < 1){
-            player.DealDamage(damage);
+            thePlayer.DealDamage(damage);
             sound.HurtPlayer.Play();
             StartCoroutine(cameraShake.Shake(.3f, .2f));       
             timerToHit = 1.8f;
         }
+      
+        if(other.gameObject.tag == "Ghost"){
+            this.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
         }
 
+        }
     }
 
     void OnCollisionExit2D(Collision2D other)
@@ -131,12 +138,38 @@ public class EnemyMovement : MonoBehaviour
             Health -= 10;
             flashActive = true;
             flashCounter = flashLength;
-            Destroy(other.gameObject);
-
-
-            
             Instantiate(damagePrefab, transform.position, Quaternion.identity);
+            Destroy(other.gameObject);
+        }
+        
+        if(other.gameObject.tag == "Ghost"){
+            this.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+        }        
+    }
 
+    private void OnTriggerStay2D(Collider2D other) {
+        
+        if(other.gameObject.tag == "Player" ) {
+            timerToHit -= Time.deltaTime;
+            if(timerToHit < 1){
+            thePlayer.DealDamage(damage);
+            sound.HurtPlayer.Play();
+            StartCoroutine(cameraShake.Shake(.3f, .2f));       
+            timerToHit = 1.8f;
+            }
+
+        if(other.gameObject.tag == "Ghost"){
+            this.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+        }
+}
+}
+    private void OnTriggerExit2D(Collider2D other) {
+        if(other.gameObject.tag == "Ghost"){
+            this.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
+        }
+        
+        if(other.gameObject.tag == "Player"){
+            timerToHit = 0;
         }
     }
 }
