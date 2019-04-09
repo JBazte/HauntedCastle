@@ -106,7 +106,10 @@ public class EnemyMovement : MonoBehaviour
 
     void OnCollisionStay2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Player" ) {
+        if(other.gameObject.tag == "Ghost"){
+            this.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+        }
+        else if(other.gameObject.tag == "Player" ) {
             this.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
             timerToHit -= Time.deltaTime;
             if(timerToHit < 1){
@@ -115,24 +118,18 @@ public class EnemyMovement : MonoBehaviour
             StartCoroutine(cameraShake.Shake(.3f, .2f));       
             timerToHit = 1.8f;
         }
-      
-        if(other.gameObject.tag == "Ghost"){
-            this.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
-        }
-
         }
     }
 
     void OnCollisionExit2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Player"){
-            this.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
-            timerToHit = 0;
-        }
         
         if(other.gameObject.tag == "Ghost"){
             this.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
-        }        
+        } else if(other.gameObject.tag == "Player"){
+            this.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
+            timerToHit = 0;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -153,7 +150,9 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Player" ) {
+        if(other.gameObject.tag == "Ghost"){
+            this.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
+        } else if(other.gameObject.tag == "Player" ) {
             this.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
             timerToHit -= Time.deltaTime;
             if(timerToHit < 1){
@@ -162,19 +161,13 @@ public class EnemyMovement : MonoBehaviour
             StartCoroutine(cameraShake.Shake(.3f, .2f));       
             timerToHit = 1.8f;
             }
-
-        if(other.gameObject.tag == "Ghost"){
-            this.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
-        }
 }
 }
     private void OnTriggerExit2D(Collider2D other) {
 
         if(other.gameObject.tag == "Ghost"){
             this.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
-        }
-
-        if(other.gameObject.tag == "Player"){
+        } else if(other.gameObject.tag == "Player"){
             this.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
             timerToHit = 0;
         }
