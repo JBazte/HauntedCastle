@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
-    public int playerHelath;
+    public int playerHealth;
 
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(transform.gameObject);
-        playerHelath = 4;
+        playerHealth = 4;
     }
 }

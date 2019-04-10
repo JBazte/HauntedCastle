@@ -23,9 +23,12 @@ public class EnemyMovement : MonoBehaviour
     private float timerToHit;
     private CameraShake cameraShake;
     private Necromancer Spawner;
+    public bool isRotated;
+    public bool followPlayer;
 
     void Start()
     {
+        isRotated = false;
         vx = 1;
         Spawner = FindObjectOfType<Necromancer>();
         cameraShake = FindObjectOfType<CameraShake>();
@@ -70,11 +73,15 @@ public class EnemyMovement : MonoBehaviour
         }
         if (transform.position.x > playerGO.transform.position.x)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            rb.velocity = new Vector2(vx, 0) * speed;
+            //transform.localScale = new Vector3(-1, 1, 1);
+            isRotated = true;
         }
         else
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            rb.velocity = new Vector2(vx, 0) * speed;
+            //transform.localScale = new Vector3(1, 1, 1);
+            isRotated = false;
         }
 
     }
@@ -88,12 +95,14 @@ public class EnemyMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if(this.gameObject.name == "NecromancerBoss"){
-            if (Vector3.Distance(transform.position, playerGO.transform.position) > 10f ) {
+            if (Vector3.Distance(transform.position, playerGO.transform.position) > 8f ) {
                 rb.velocity = new Vector2(vx, 0) * speed;
+                followPlayer = false;
             }
             else
             {
                 transform.position = Vector3.SmoothDamp(transform.position, playerGO.transform.position, ref smoothVelocity, smoothTime);
+                followPlayer = true;
             }
         }
         else

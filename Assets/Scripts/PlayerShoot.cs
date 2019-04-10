@@ -31,7 +31,6 @@ public class PlayerShoot : MonoBehaviour
                                  Input.GetKey(KeyCode.DownArrow) ? SHOOTING_DIRECTION.DOWN : SHOOTING_DIRECTION.NONE;
         if (timeBetweenShots > ShotDelay)
         {
-
             if (dir != SHOOTING_DIRECTION.NONE)
             {
                 GameObject B = (GameObject)Instantiate(bulletPrefab, transform.position, Quaternion.identity);

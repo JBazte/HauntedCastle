@@ -12,12 +12,19 @@ public class Necromancer : MonoBehaviour
     public Transform spawnPoint;
     public Transform spawnPoint2;
     float rng = 0;
-    
+    private EnemyMovement posRotated;
+    private EnemyShoot pos;
+
+    private void Start(){
+        posRotated = FindObjectOfType<EnemyMovement>();
+        pos = FindObjectOfType<EnemyShoot>();
+    }
+
     private void Update()
     {
-         Timer += Time.deltaTime * 1;
+        Timer += Time.deltaTime * 1;
+        rng = Random.Range(-1f, 1f);
 
-         rng = Random.Range(-1f, 1f);
 
         if (Timer > 8)
         {

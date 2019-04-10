@@ -12,6 +12,15 @@ TagManager:
   - Fill
   - Ghost
   - Clone
+  - BulletToPlayer
+  - ShootPoint
+  - ShootPoint1
+  - ShootPoint2
+  - ShootPoint3
+  - ShootPoint4
+  - ShootPoint5
+  - ShootPoint6
+  - ShootPoint7
   layers:
   - Default
   - TransparentFX

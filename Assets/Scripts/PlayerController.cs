@@ -113,11 +113,11 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(waitForSound());
         }
-
+        
         if (Input.GetButton("Jump") && isReady)
         {
             GhostMode();
-        }
+        } 
         else if (Input.GetButtonUp("Jump"))
         {
             playerRenderer.color = new Color(255f, 255f, 255f, 255f);
@@ -147,7 +147,7 @@ public class PlayerController : MonoBehaviour
 
     public void DealDamage(int damage)
     {
-        thePlayerHealth.playerHelath -= damage;
+        thePlayerHealth.playerHealth -= damage;
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -158,6 +158,12 @@ public class PlayerController : MonoBehaviour
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
             Vector3 pos = contact.point;
             //Instantiate(damagePrefab, pos, rot);
+        }
+        
+        if (other.gameObject.tag == "BulletToPlayer")
+        {
+            thePlayerHealth.playerHealth -= 1;
+            Destroy(other.gameObject);
         }
     }
 
@@ -173,7 +179,7 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other) {
         if(other.gameObject.tag == "Item"){
-            thePlayerHealth.playerHelath += 1;
+            thePlayerHealth.playerHealth += 1;
             sound.HelathUp.Play();
             Destroy(other.gameObject);
         }

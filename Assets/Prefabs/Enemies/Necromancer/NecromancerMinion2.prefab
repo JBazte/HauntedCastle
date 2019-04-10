@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: 7414f67e0efee10498901f8112d8dd49, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -123,6 +123,8 @@ MonoBehaviour:
   Health: 30
   damagePrefab: {fileID: 978247915193650830, guid: aa150f5e5fb7571409e0c383715e7463,
     type: 3}
+  isRotated: 0
+  followPlayer: 0
 --- !u!61 &7596518239176022131
 BoxCollider2D:
   m_ObjectHideFlags: 0

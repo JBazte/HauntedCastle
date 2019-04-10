@@ -26,19 +26,19 @@ public class PlayerHealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (thePlayerHealth.playerHelath < 1){
+        if (thePlayerHealth.playerHealth < 1){
             //sound.GhostDying.Play();
             StartCoroutine(Fading());
         }
 
-        if(thePlayerHealth.playerHelath > numHearts)
+        if(thePlayerHealth.playerHealth > numHearts)
         {
-            thePlayerHealth.playerHelath = numHearts;
+            thePlayerHealth.playerHealth = numHearts;
         }
 
         for (int i = 0; i < hearts.Length; i++)
         {
-            if (i < thePlayerHealth.playerHelath)
+            if (i < thePlayerHealth.playerHealth)
             {
                 hearts[i].sprite = fullHeart;
             }
