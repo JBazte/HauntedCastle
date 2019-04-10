@@ -8,9 +8,15 @@ public class SkipCutscene : MonoBehaviour
 {
     public Image black;
     public Animator anim;
+    private EffectsManager sound;
 
+    private void Start() {
+        sound = FindObjectOfType<EffectsManager>();
+    }
+    
     public void NewScene(string sceneName)
     {
+        sound.ButtonEffect.Play();
         StartCoroutine(Fading(sceneName));
     }
 

@@ -10,23 +10,28 @@ public class PauseController : MonoBehaviour {
     public Image black;
     public Animator anim;
     private HealthManager thePlayerHealth;
+    private EffectsManager sound;
 
     private void Start() {
+        sound = FindObjectOfType<EffectsManager>();
         thePlayerHealth = FindObjectOfType<HealthManager>();
         thePlayer = FindObjectOfType<PlayerController>();
     }
     public void Reanudar()
     {
+        sound.ButtonEffect.Play();
         thePlayer.paused = false;
     }
 
     public void Reiniciar()
     {
+        sound.ButtonEffect.Play();
         StartCoroutine(RestartDelay());
     }
 
     public void Salir()
     {
+        sound.ButtonEffect.Play();
         StartCoroutine(ExitDelay());
     }
 
@@ -42,7 +47,8 @@ public class PauseController : MonoBehaviour {
 
     public IEnumerator ExitDelay()
     {
-        yield return new WaitForSecondsRealtime(.8f);
+        anim.SetBool("Fade", true);
+        yield return new WaitUntil(() => black.color.a == 1);
         Application.Quit();
     }
 

@@ -11,6 +11,7 @@ TagManager:
   - Item
   - Fill
   - Ghost
+  - Clone
   layers:
   - Default
   - TransparentFX

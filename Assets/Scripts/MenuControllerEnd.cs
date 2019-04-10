@@ -9,29 +9,30 @@ public class MenuControllerEnd : MonoBehaviour {
     public Image black;
     public Animator anim;
     private GameObject button;
+    private EffectsManager sound;
 
     void Start() {
+        sound = FindObjectOfType<EffectsManager>();
         button = GameObject.Find("Reiniciar");
         GameObject myEventSystem = GameObject.Find("EventSystem");
         myEventSystem.GetComponent<UnityEngine.EventSystems.EventSystem>().SetSelectedGameObject(button);
     }
 
-    void Update(){
-        
-    }
-
     public void NewScene(string sceneName)
     {
+        sound.ButtonEffect.Play();
         StartCoroutine(Fading(sceneName));
     }
 
     public void RestartScene()
     {
+        sound.ButtonEffect.Play();
         StartCoroutine(RestartDelay());
     }
 
     public void ExitScene()
     {
+        sound.ButtonEffect.Play();
         StartCoroutine(Delay());
     }
 
@@ -53,7 +54,8 @@ public class MenuControllerEnd : MonoBehaviour {
 
     public IEnumerator Delay()
     {
-        yield return new WaitForSecondsRealtime(.8f);
+        anim.SetBool("Fade", true);
+        yield return new WaitUntil(() => black.color.a == 1);
         Application.Quit();
     }
 }

@@ -19,6 +19,13 @@ public class DamageEnemies : MonoBehaviour
             Instantiate(destoyParticles, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+        
+        if(other.gameObject.tag == "Clone")
+        {
+            sound.HurtEnemy.Play();
+            Instantiate(destoyParticles, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
 
         if (other.gameObject.tag == "Test")
         {

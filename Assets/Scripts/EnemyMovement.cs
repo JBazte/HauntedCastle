@@ -5,15 +5,12 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public int vx = 0;
-    
-    
     public float speed = 3f;
     Rigidbody2D rb;
     public bool hasChangedVel = false;
     private PlayerController thePlayer;
     private GameObject playerGO;
     [SerializeField] int damage;
-
     private bool flashActive;
     public float flashLength;
     private float flashCounter;
@@ -25,13 +22,15 @@ public class EnemyMovement : MonoBehaviour
     private EffectsManager sound;
     private float timerToHit;
     private CameraShake cameraShake;
+    private Necromancer Spawner;
 
     void Start()
     {
+        vx = 1;
+        Spawner = FindObjectOfType<Necromancer>();
         cameraShake = FindObjectOfType<CameraShake>();
         enemyRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-        vx = 1;
         playerGO = FindObjectOfType <PlayerController>().gameObject;
         thePlayer = FindObjectOfType<PlayerController>();
         sound = FindObjectOfType<EffectsManager>();
@@ -80,14 +79,32 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
+    private void OnDestroy() {
+        if(this.gameObject.tag == "Clone" || this.gameObject.tag == "Clone"){
+            Spawner.Timer = 0;
+        }
+    }
+
     private void FixedUpdate()
     {
-        
-        if (Vector3.Distance(transform.position, playerGO.transform.position) > 5f ) {
-            rb.velocity = new Vector2(vx, 0) * speed;
-        } else
+        if(this.gameObject.name == "NecromancerBoss"){
+            if (Vector3.Distance(transform.position, playerGO.transform.position) > 10f ) {
+                rb.velocity = new Vector2(vx, 0) * speed;
+            }
+            else
+            {
+                transform.position = Vector3.SmoothDamp(transform.position, playerGO.transform.position, ref smoothVelocity, smoothTime);
+            }
+        }
+        else
         {
-            transform.position = Vector3.SmoothDamp(transform.position, playerGO.transform.position, ref smoothVelocity, smoothTime);
+            if (Vector3.Distance(transform.position, playerGO.transform.position) > 5f ) {
+                rb.velocity = new Vector2(vx, 0) * speed;
+            }
+            else
+            {
+                transform.position = Vector3.SmoothDamp(transform.position, playerGO.transform.position, ref smoothVelocity, smoothTime);
+            }
         }
         
     }

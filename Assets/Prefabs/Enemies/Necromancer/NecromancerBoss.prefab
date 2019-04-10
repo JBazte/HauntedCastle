@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6648304991223156223
 Transform:
   m_ObjectHideFlags: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 2791d5e2ce26a2141be3426ac0f4dfb5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -137,18 +137,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0031404495, y: -0.25786495}
+  m_Offset: {x: 0.0021865964, y: -0.497234}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.6, y: 2}
+    oldSize: {x: 3.2, y: 4}
     newSize: {x: 1.6, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1813774, y: 1.4842701}
+  m_Size: {x: 2.3427143, y: 2.9872625}
   m_EdgeRadius: 0
 --- !u!114 &7217482844225730560
 MonoBehaviour:
@@ -164,6 +164,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instancePrefab: {fileID: 503104836462023225, guid: 2ffcf79c4839c3a4e9220a75a0b46d45,
     type: 3}
+  Timer: 8
+  spawnPoint: {fileID: 0}
+  spawnPoint2: {fileID: 0}
 --- !u!114 &5111817052349616976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +185,6 @@ MonoBehaviour:
   damage: 2
   flashLength: 0.3
   smoothTime: 1
-  Health: 50
+  Health: 100
   damagePrefab: {fileID: 978247915193650830, guid: aa150f5e5fb7571409e0c383715e7463,
     type: 3}

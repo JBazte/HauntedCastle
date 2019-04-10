@@ -9,14 +9,20 @@ public class MenuController : MonoBehaviour
 
     public Image black;
     public Animator anim;
+    private EffectsManager sound;
 
+    private void Start() {
+        sound = FindObjectOfType<EffectsManager>();
+    }
     public void NewScene(string sceneName)
     {
+        sound.ButtonEffect.Play();
         StartCoroutine(Fading(sceneName));
     }
     
     public void ExitScene()
     {
+        sound.ButtonEffect.Play();
         StartCoroutine(ExitDelay());
     }
 
@@ -30,7 +36,8 @@ public class MenuController : MonoBehaviour
 
     public IEnumerator ExitDelay()
     {
-        yield return new WaitForSeconds(.8f);
+        anim.SetBool("Fade", true);
+        yield return new WaitUntil(() => black.color.a == 1);
         Application.Quit();
     }
 }

@@ -14,6 +14,7 @@ public class PlayerHealthBar : MonoBehaviour
     public Image black;
     public Animator anim;
     private HealthManager thePlayerHealth;
+    //public EffectsManager sound;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class PlayerHealthBar : MonoBehaviour
     void Update()
     {
         if (thePlayerHealth.playerHelath < 1){
+            //sound.GhostDying.Play();
             StartCoroutine(Fading());
         }
 

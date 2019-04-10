@@ -7,4 +7,6 @@ public class EffectsManager : MonoBehaviour {
     public AudioSource HurtPlayer;
     public AudioSource HelathUp;
     public AudioSource SpecialAbility;
+    public AudioSource ButtonEffect;
+    public AudioSource GhostDying;
 }
