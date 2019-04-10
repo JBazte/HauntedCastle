@@ -102,6 +102,7 @@ public class PlayerController : MonoBehaviour
 
         if(isReady == false){
             spriteColorBar.color = Color.red;
+            moveSpeed = 5;
         }
         else
         {
@@ -121,6 +122,7 @@ public class PlayerController : MonoBehaviour
         {
             playerRenderer.color = new Color(255f, 255f, 255f, 255f);
             this.gameObject.tag = "Player";
+            moveSpeed = 5;
         }
 
         sliderBar.value = specialDuration;
@@ -133,6 +135,7 @@ public class PlayerController : MonoBehaviour
             specialDuration -= Time.deltaTime * 4f;
             playerRenderer.color = new Color(0f, 0f, 0f, 255f);
             this.gameObject.tag = "Ghost";
+            moveSpeed = 6;
         }
         else
         {

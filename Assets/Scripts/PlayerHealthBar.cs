@@ -58,11 +58,13 @@ public class PlayerHealthBar : MonoBehaviour
     
     IEnumerator Fading()
     {
+        Time.timeScale = 0f;
         anim.SetBool("Fade", true);
         yield return new WaitUntil(() => black.color.a == 1);
         SceneManager.LoadScene("Lose");
         anim.SetBool("Fade", false);
         thePlayer.gameObject.SetActive(false);
+        Time.timeScale = 1f;
         Destroy(thePlayerHealth.gameObject);
     }
 }
