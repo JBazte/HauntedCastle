@@ -17,18 +17,18 @@ public class EnemyMovement : MonoBehaviour
     public float smoothTime = 1f;
     private Vector3 smoothVelocity = Vector3.zero;
     private SpriteRenderer enemyRenderer;
-    [SerializeField] private int Health;
+    public int Health;
     public ParticleSystem damagePrefab;
     private EffectsManager sound;
     private float timerToHit;
     private CameraShake cameraShake;
     private Necromancer Spawner;
-    public bool isRotated;
     public bool followPlayer;
+    private SpriteRenderer sprite;
 
     void Start()
     {
-        isRotated = false;
+        sprite = GetComponent<SpriteRenderer>();
         vx = 1;
         Spawner = FindObjectOfType<Necromancer>();
         cameraShake = FindObjectOfType<CameraShake>();
@@ -41,6 +41,13 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        if(!followPlayer && vx < 0){
+            sprite.flipX = true;
+        }
+        else if(!followPlayer && vx > 0)
+        {
+            sprite.flipX = false;
+        }
         if (Health <= 0)
         {
            Destroy(gameObject);
@@ -71,17 +78,18 @@ public class EnemyMovement : MonoBehaviour
 
             
         }
-        if (transform.position.x > playerGO.transform.position.x)
+        if (followPlayer && transform.position.x > playerGO.transform.position.x)
         {
-            rb.velocity = new Vector2(vx, 0) * speed;
+            //rb.velocity = new Vector2(vx, 0) * speed;
             //transform.localScale = new Vector3(-1, 1, 1);
-            isRotated = true;
+            sprite.flipX = true;
+
         }
-        else
+        else if(followPlayer && transform.position.x < playerGO.transform.position.x)
         {
-            rb.velocity = new Vector2(vx, 0) * speed;
+            //rb.velocity = new Vector2(vx, 0) * speed;
             //transform.localScale = new Vector3(1, 1, 1);
-            isRotated = false;
+            sprite.flipX = false;
         }
 
     }
@@ -95,13 +103,14 @@ public class EnemyMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if(this.gameObject.name == "NecromancerBoss"){
-            if (Vector3.Distance(transform.position, playerGO.transform.position) > 8f ) {
+            if (Vector3.Distance(transform.position, playerGO.transform.position) > 10f ) {
                 rb.velocity = new Vector2(vx, 0) * speed;
                 followPlayer = false;
             }
             else
             {
-                transform.position = Vector3.SmoothDamp(transform.position, playerGO.transform.position, ref smoothVelocity, smoothTime);
+                float step = 1.8f * Time.deltaTime;
+                transform.position = Vector2.MoveTowards(transform.position, playerGO.transform.position, step);
                 followPlayer = true;
             }
         }
@@ -109,10 +118,13 @@ public class EnemyMovement : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, playerGO.transform.position) > 5f ) {
                 rb.velocity = new Vector2(vx, 0) * speed;
+                followPlayer = false;
             }
             else
             {
-                transform.position = Vector3.SmoothDamp(transform.position, playerGO.transform.position, ref smoothVelocity, smoothTime);
+                float step = 3f * Time.deltaTime;
+                transform.position = Vector2.MoveTowards(transform.position, playerGO.transform.position, step);
+                followPlayer = true;
             }
         }
         
@@ -120,10 +132,11 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Test" && !hasChangedVel) { 
-        vx = -vx;
-        
-            transform.localScale = new Vector3(-transform.localScale.x,1,1);
+        if(!followPlayer){
+            if (collision.gameObject.tag == "Test" && !hasChangedVel) { 
+                vx = -vx;
+                //transform.localScale = new Vector3(-transform.localScale.x,1,1);
+            }
         }
         if(collision.gameObject.tag == "Ghost"){
             this.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;

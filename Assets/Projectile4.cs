@@ -8,16 +8,23 @@ public class Projectile4 : MonoBehaviour
     private Transform sp;
     private EffectsManager sound;
     public ParticleSystem destoyParticles;
+    private GameObject boss;
 
     // Start is called before the first frame update
     void Start()
     {
-        shootPoint = GameObject.Find("ShootPoint4");
+        boss = GameObject.Find("NecromancerBoss");
+        shootPoint = GameObject.Find("ShootPoint");
         sp = shootPoint.GetComponent<Transform>();
         sound = FindObjectOfType<EffectsManager>();
     }
 
     void Update(){
+        if(boss.GetComponent<EnemyMovement>().Health < 1){
+            Instantiate(destoyParticles, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
+
         float step = 8f * Time.deltaTime;
         transform.position = Vector2.MoveTowards(transform.position, sp.position, step);
     }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4458989580517718468}
   - component: {fileID: 6839448733385585753}
   - component: {fileID: 6588285550394921715}
+  - component: {fileID: 7418701918367508669}
   m_Layer: 0
   m_Name: RedBullet 4
   m_TagString: BulletToPlayer
@@ -168,3 +169,16 @@ MonoBehaviour:
   shootPoint: {fileID: 0}
   destoyParticles: {fileID: 3074514112359980920, guid: 1d450a6b22a8c9142ab07ad9c3e9ec17,
     type: 3}
+--- !u!114 &7418701918367508669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065430632051088863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52b196848a079064a82d7d8d8de522fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDestroy: 2
