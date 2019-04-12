@@ -9,4 +9,7 @@ public class EffectsManager : MonoBehaviour {
     public AudioSource SpecialAbility;
     public AudioSource ButtonEffect;
     public AudioSource GhostDying;
+    public AudioSource EnemyDying;
+    public AudioSource EnemyDying1;
+    public AudioSource EnemyDying2;
 }

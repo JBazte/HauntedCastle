@@ -14,11 +14,12 @@ public class PlayerHealthBar : MonoBehaviour
     public Image black;
     public Animator anim;
     private HealthManager thePlayerHealth;
-    //public EffectsManager sound;
+    //private EffectsManager sound;
 
     // Start is called before the first frame update
     void Start()
     {
+        //sound = FindObjectOfType<EffectsManager>();
         thePlayerHealth = FindObjectOfType<HealthManager>();
         thePlayer = GetComponent<PlayerController>();
     }
@@ -27,8 +28,8 @@ public class PlayerHealthBar : MonoBehaviour
     void Update()
     {
         if (thePlayerHealth.playerHealth < 1){
-            //sound.GhostDying.Play();
             StartCoroutine(Fading());
+            //sound.GhostDying.Play();
         }
 
         if(thePlayerHealth.playerHealth > numHearts)
@@ -62,6 +63,7 @@ public class PlayerHealthBar : MonoBehaviour
     {
         Time.timeScale = 0f;
         anim.SetBool("Fade", true);
+        //yield return new WaitForSeconds(sound.GhostDying.clip.length);
         yield return new WaitUntil(() => black.color.a == 1);
         SceneManager.LoadScene("Lose");
         anim.SetBool("Fade", false);

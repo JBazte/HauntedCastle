@@ -165,10 +165,10 @@ MonoBehaviour:
   speed: 3
   hasChangedVel: 0
   damage: 1
-  flashLength: 0.3
+  flashLength: 0.2
   smoothTime: 1
   Health: 30
   damagePrefab: {fileID: 978247915193650830, guid: aa150f5e5fb7571409e0c383715e7463,
     type: 3}
-  isRotated: 0
   followPlayer: 0
+  bossVelocity: 0

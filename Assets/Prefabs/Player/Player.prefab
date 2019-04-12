@@ -100,18 +100,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.047350824, y: 0.028267503}
+  m_Offset: {x: 0.005526781, y: 0.065543175}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.1333334, y: 2.1333334}
+    oldSize: {x: 2.0666666, y: 2.1333334}
     newSize: {x: 2.1333334, y: 2.1333334}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9870986, y: 1.1310933}
+  m_Size: {x: 0.99083567, y: 1.2056446}
   m_EdgeRadius: 0
 --- !u!114 &4042951095113826540
 MonoBehaviour:
@@ -234,6 +234,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4042951095113826537}
     m_Modifications:
+    - target: {fileID: 8611450850384187390, guid: 54afb6f7c86ee61419beceb9a6394805,
+        type: 3}
+      propertyPath: m_Name
+      value: PlayerTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611450850384187390, guid: 54afb6f7c86ee61419beceb9a6394805,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8611450850384187377, guid: 54afb6f7c86ee61419beceb9a6394805,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -298,16 +308,6 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startSize.minScalar
       value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8611450850384187390, guid: 54afb6f7c86ee61419beceb9a6394805,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerTrail
-      objectReference: {fileID: 0}
-    - target: {fileID: 8611450850384187390, guid: 54afb6f7c86ee61419beceb9a6394805,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54afb6f7c86ee61419beceb9a6394805, type: 3}

@@ -14,7 +14,7 @@ public class Projectile1 : MonoBehaviour
     void Start()
     {
         boss = GameObject.Find("NecromancerBoss");
-        shootPoint = GameObject.Find("ShootPoint");
+        shootPoint = GameObject.Find("ShootPoint1");
         sp = shootPoint.GetComponent<Transform>();
         sound = FindObjectOfType<EffectsManager>();
     }
@@ -24,9 +24,8 @@ public class Projectile1 : MonoBehaviour
             Instantiate(destoyParticles, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
-
-        float step = 8f * Time.deltaTime;
-        transform.position = Vector2.MoveTowards(transform.position, sp.position, step);
+            float step = 8f * Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position, sp.position, step);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

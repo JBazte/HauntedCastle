@@ -25,6 +25,10 @@ public class EnemyMovement : MonoBehaviour
     private Necromancer Spawner;
     public bool followPlayer;
     private SpriteRenderer sprite;
+    public float bossVelocity;
+    private float distance1 = 10f;
+    private float distance2 = 5f;
+
 
     void Start()
     {
@@ -41,6 +45,10 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        if(Health <= Health-1){
+            distance1 = 0f;
+            distance2 = 0f;
+        }
         if(!followPlayer && vx < 0){
             sprite.flipX = true;
         }
@@ -48,10 +56,16 @@ public class EnemyMovement : MonoBehaviour
         {
             sprite.flipX = false;
         }
-        if (Health <= 0)
-        {
-           Destroy(gameObject);
-        }
+        if (Health <= 0 && this.gameObject.name == "NecromancerMinion3"){
+            sound.EnemyDying2.Play();
+            Destroy(gameObject);
+        } else if (Health <= 0 && this.gameObject.name == "OgreMinion" || Health <= 0 && this.gameObject.name == "NecromancerMinion2(Clone)"){
+            sound.EnemyDying1.Play();
+            Destroy(gameObject);
+        } else if (Health <= 0 && this.gameObject.name == "NecromancerBoss" ){
+            sound.EnemyDying.Play();
+            Destroy(gameObject);
+        } 
         if (flashActive)
         {
             if (flashCounter > flashLength * .66f)
@@ -103,20 +117,20 @@ public class EnemyMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if(this.gameObject.name == "NecromancerBoss"){
-            if (Vector3.Distance(transform.position, playerGO.transform.position) > 10f ) {
+            if (Vector3.Distance(transform.position, playerGO.transform.position) > distance1 ) {
                 rb.velocity = new Vector2(vx, 0) * speed;
                 followPlayer = false;
             }
             else
             {
-                float step = 1.8f * Time.deltaTime;
+                float step = bossVelocity * Time.deltaTime;
                 transform.position = Vector2.MoveTowards(transform.position, playerGO.transform.position, step);
                 followPlayer = true;
             }
         }
         else
         {
-            if (Vector3.Distance(transform.position, playerGO.transform.position) > 5f ) {
+            if (Vector3.Distance(transform.position, playerGO.transform.position) > distance2 ) {
                 rb.velocity = new Vector2(vx, 0) * speed;
                 followPlayer = false;
             }

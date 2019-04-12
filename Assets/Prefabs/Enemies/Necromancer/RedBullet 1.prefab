@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glowColor: {r: 1, g: 0, b: 0, a: 1}
-  glowBrightness: 1.1
+  glowBrightness: 1.5
   outlineWidth: 1
   alphaThreshold: 0.035
   drawOutside: 0
@@ -181,4 +181,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52b196848a079064a82d7d8d8de522fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDestroy: 2
+  timeToDestroy: 5

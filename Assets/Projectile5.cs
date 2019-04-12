@@ -14,7 +14,7 @@ public class Projectile5 : MonoBehaviour
     void Start()
     {
         boss = GameObject.Find("NecromancerBoss");
-        shootPoint = GameObject.Find("ShootPoint");
+        shootPoint = GameObject.Find("ShootPoint5");
         sp = shootPoint.GetComponent<Transform>();
         sound = FindObjectOfType<EffectsManager>();
     }

@@ -118,13 +118,13 @@ MonoBehaviour:
   speed: 3
   hasChangedVel: 0
   damage: 1
-  flashLength: 0.3
+  flashLength: 0.2
   smoothTime: 1
   Health: 30
   damagePrefab: {fileID: 978247915193650830, guid: aa150f5e5fb7571409e0c383715e7463,
     type: 3}
-  isRotated: 0
   followPlayer: 0
+  bossVelocity: 0
 --- !u!61 &7596518239176022131
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149,7 +149,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6, y: 1.3044281}
+  m_Size: {x: 1.4, y: 1.3044281}
   m_EdgeRadius: 0
 --- !u!50 &5456803312203987600
 Rigidbody2D:
