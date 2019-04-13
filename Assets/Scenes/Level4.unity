@@ -1433,6 +1433,10 @@ PrefabInstance:
       propertyPath: bossVelocity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1476233033, guid: cab858e0d10be17459aae910ddac8dd4, type: 3}
+      propertyPath: ShotDelay
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cab858e0d10be17459aae910ddac8dd4, type: 3}
 --- !u!1 &622001915
