@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
         effectActive = false;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         specialDuration += Time.deltaTime * .5f;
         moveXY = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
@@ -69,7 +69,36 @@ public class PlayerController : MonoBehaviour
         if(specialDuration == 5f && isReady == false){
             isReady = true;
         }
+        
+        if(isReady == false){
+            spriteColorBar.color = Color.red;
+            moveSpeed = 5;
+        }
+        else
+        {
+            spriteColorBar.color = Color.green;
+        }
 
+        if(Input.GetButtonDown("Jump") && isReady && effectActive == false)
+        {
+            StartCoroutine(waitForSound());
+        }
+        
+        if (Input.GetButton("Jump") && isReady)
+        {
+            GhostMode();
+        } 
+        else if (Input.GetButtonUp("Jump"))
+        {
+            playerRenderer.color = new Color(255f, 255f, 255f, 255f);
+            this.gameObject.tag = "Player";
+            moveSpeed = 5;
+        }
+
+        sliderBar.value = specialDuration;
+    }
+
+    private void Update() {
         if (Input.GetKey(KeyCode.D))
         {
             sprite.flipX = true;
@@ -99,34 +128,6 @@ public class PlayerController : MonoBehaviour
             paused = false;
             Time.timeScale = 1f;
         }
-
-        if(isReady == false){
-            spriteColorBar.color = Color.red;
-            moveSpeed = 5;
-        }
-        else
-        {
-            spriteColorBar.color = Color.green;
-        }
-
-        if(Input.GetButtonDown("Jump") && isReady && effectActive == false)
-        {
-            StartCoroutine(waitForSound());
-        }
-        
-        if (Input.GetButton("Jump") && isReady)
-        {
-            GhostMode();
-        } 
-        else if (Input.GetButtonUp("Jump"))
-        {
-            playerRenderer.color = new Color(255f, 255f, 255f, 255f);
-            this.gameObject.tag = "Player";
-            moveSpeed = 5;
-        }
-
-        sliderBar.value = specialDuration;
-        
     }
 
     public void GhostMode()

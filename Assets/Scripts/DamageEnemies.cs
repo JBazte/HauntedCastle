@@ -33,4 +33,7 @@ public class DamageEnemies : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    void OnBecameInvisible() {
+        Destroy(gameObject);
+    }
 }

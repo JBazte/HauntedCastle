@@ -471,8 +471,6 @@ MonoBehaviour:
   timeBetweenShots: 0
   ShotDelay: 50
   currentDamage: 1
-  i: 0
-  sceneName: 
 --- !u!1 &8865733842008516730
 GameObject:
   m_ObjectHideFlags: 0

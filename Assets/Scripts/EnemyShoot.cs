@@ -37,6 +37,10 @@ public class EnemyShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Time.deltaTime == 0f){
+            timeBetweenShots = 70f;
+        }
+
         if(sceneName == "Level4"){
             if(shotToPlayer.followPlayer){
                 timeBetweenShots++;
@@ -58,7 +62,7 @@ public class EnemyShoot : MonoBehaviour
                     i +=1; 
                 }
             } else {
-            timeBetweenShots = 0f;
+            timeBetweenShots = 70f;
             }
         }
         else if(sceneName == "Level3")
@@ -122,13 +126,9 @@ public class EnemyShoot : MonoBehaviour
                 else if (timeBetweenShots > ShotDelay && i <= 2)
                 {
                     Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-                    Instantiate(bulletPrefab1, transform.position, Quaternion.identity);
                     Instantiate(bulletPrefab2, transform.position, Quaternion.identity);
-                    Instantiate(bulletPrefab3, transform.position, Quaternion.identity);
                     Instantiate(bulletPrefab4, transform.position, Quaternion.identity);
-                    Instantiate(bulletPrefab5, transform.position, Quaternion.identity);
                     Instantiate(bulletPrefab6, transform.position, Quaternion.identity);
-                    Instantiate(bulletPrefab7, transform.position, Quaternion.identity);
                     timeBetweenShots = 70f;
                     i +=1; 
                 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EffectsManager : MonoBehaviour {
     public AudioSource HurtEnemy;
@@ -12,4 +13,13 @@ public class EffectsManager : MonoBehaviour {
     public AudioSource EnemyDying;
     public AudioSource EnemyDying1;
     public AudioSource EnemyDying2;
+    private Scene theScene;
+
+    void Start() {
+        theScene = SceneManager.GetActiveScene();
+        if(theScene.name == "Lose"){
+            GhostDying.Play();
+        }
+    }
+
 }

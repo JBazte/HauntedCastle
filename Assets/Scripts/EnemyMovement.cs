@@ -27,11 +27,12 @@ public class EnemyMovement : MonoBehaviour
     private SpriteRenderer sprite;
     public float bossVelocity;
     private float distance1 = 10f;
-    private float distance2 = 5f;
-
+    private float distance2 = 6f;
+    private HealthManager thePlayerHealth;
 
     void Start()
     {
+        thePlayerHealth = FindObjectOfType<HealthManager>();
         sprite = GetComponent<SpriteRenderer>();
         vx = 1;
         Spawner = FindObjectOfType<Necromancer>();
@@ -45,10 +46,6 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
-        if(Health <= Health-1){
-            distance1 = 0f;
-            distance2 = 0f;
-        }
         if(!followPlayer && vx < 0){
             sprite.flipX = true;
         }
@@ -147,7 +144,7 @@ public class EnemyMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(!followPlayer){
-            if (collision.gameObject.tag == "Test" && !hasChangedVel) { 
+            if (collision.gameObject.tag == "Test" && !hasChangedVel || collision.gameObject.tag == "Enemy" && !hasChangedVel) { 
                 vx = -vx;
                 //transform.localScale = new Vector3(-transform.localScale.x,1,1);
             }
@@ -162,7 +159,7 @@ public class EnemyMovement : MonoBehaviour
         if(other.gameObject.tag == "Ghost"){
             this.gameObject.GetComponent<BoxCollider2D>().isTrigger = true;
         }
-        else if(other.gameObject.tag == "Player" ) {
+        else if(other.gameObject.tag == "Player") {
             this.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
             timerToHit -= Time.deltaTime;
             if(timerToHit < 1){
