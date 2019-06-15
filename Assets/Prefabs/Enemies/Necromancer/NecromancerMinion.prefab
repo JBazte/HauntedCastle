@@ -125,6 +125,7 @@ MonoBehaviour:
     type: 3}
   followPlayer: 0
   bossVelocity: 0
+  PowerUp: {fileID: 6869359918028288054, guid: 112080da487188b45a41885133a107cf, type: 3}
 --- !u!61 &6618851133528912926
 BoxCollider2D:
   m_ObjectHideFlags: 0

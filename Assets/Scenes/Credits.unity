@@ -1352,7 +1352,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "PROGRAMMATION | DESIGN\r | UX/UI"
+  m_Text: "PROGRAMMING | DESIGN\r | UX/UI"
 --- !u!222 &951265657
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2973,7 +2973,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: PROGRAMMATION | CINEMATICS
+  m_Text: PROGRAMMING | CINEMATICS
 --- !u!222 &2097426129
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -172,3 +172,4 @@ MonoBehaviour:
     type: 3}
   followPlayer: 0
   bossVelocity: 0
+  PowerUp: {fileID: 6869359918028288054, guid: 112080da487188b45a41885133a107cf, type: 3}

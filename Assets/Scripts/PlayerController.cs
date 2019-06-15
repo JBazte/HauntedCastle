@@ -88,7 +88,8 @@ public class PlayerController : MonoBehaviour
         {
             GhostMode();
         } 
-        else if (Input.GetButtonUp("Jump"))
+        
+        if (!Input.GetButton("Jump"))
         {
             playerRenderer.color = new Color(255f, 255f, 255f, 255f);
             this.gameObject.tag = "Player";
@@ -138,11 +139,11 @@ public class PlayerController : MonoBehaviour
             this.gameObject.tag = "Ghost";
             moveSpeed = 6;
         }
-        else
+        else if (specialDuration <= 0)
         {
             this.gameObject.tag = "Player";
-            isReady = false;
             playerRenderer.color = new Color(255f, 255f, 255f, 255f);
+            isReady = false;
         }
     }
 
@@ -179,7 +180,7 @@ public class PlayerController : MonoBehaviour
         effectActive = false;
     }
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.tag == "Item"){
+        if(other.gameObject.tag == "Item" && this.gameObject.tag == "Player"){
             thePlayerHealth.playerHealth += 1;
             sound.HelathUp.Play();
             Destroy(other.gameObject);

@@ -10,7 +10,6 @@ public class PlayerShoot : MonoBehaviour
     private float timeBetweenShots;
     public float ShotDelay;
     //private HurtEnemy P;
-    public int currentDamage;
 
     public enum SHOOTING_DIRECTION
     {
@@ -35,7 +34,6 @@ public class PlayerShoot : MonoBehaviour
             {
                 GameObject B = (GameObject)Instantiate(bulletPrefab, transform.position, Quaternion.identity);
                 //HurtEnemy bScript = B.GetComponent<HurtEnemy>();
-                //bScript.damageToGive = bScript.damageToGive + currentDamage;
                 Bullets b = new Bullets(B, dir);
                 Bullets.Add(b);
                 timeBetweenShots = 0;
@@ -53,7 +51,7 @@ public class PlayerShoot : MonoBehaviour
             }
             else
             {
-                goBullet.Update();
+                goBullet.Update(Time.deltaTime);
             }
         }
         //Borrar todos los projectiles que corresponda

@@ -10,6 +10,6 @@ public class HealthManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(transform.gameObject);
-        playerHealth = 4;
+        playerHealth = 5;
     }
 }

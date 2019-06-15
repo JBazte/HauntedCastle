@@ -29,6 +29,7 @@ public class EnemyMovement : MonoBehaviour
     private float distance1 = 10f;
     private float distance2 = 6f;
     private HealthManager thePlayerHealth;
+    public GameObject PowerUp;
 
     void Start()
     {
@@ -55,13 +56,13 @@ public class EnemyMovement : MonoBehaviour
         }
         if (Health <= 0 && this.gameObject.name == "NecromancerMinion3"){
             sound.EnemyDying2.Play();
-            Destroy(gameObject);
+            ItemDrop();
         } else if (Health <= 0 && this.gameObject.name == "OgreMinion" || Health <= 0 && this.gameObject.name == "NecromancerMinion2(Clone)"){
             sound.EnemyDying1.Play();
-            Destroy(gameObject);
+            ItemDrop();
         } else if (Health <= 0 && this.gameObject.name == "NecromancerBoss" ){
             sound.EnemyDying.Play();
-            Destroy(gameObject);
+            ItemDrop();
         } 
         if (flashActive)
         {
@@ -221,5 +222,18 @@ public class EnemyMovement : MonoBehaviour
             this.gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
             timerToHit = 0;
         }
+    }
+
+    private void ItemDrop(){
+        int rand = (int)Random.Range(1f, 100f);
+        
+        if(thePlayerHealth.playerHealth == 1 && rand <= 60f){
+            Instantiate(PowerUp, this.transform.position, this.transform.rotation);
+        } else if(thePlayerHealth.playerHealth == 3 && rand <= 40f || thePlayerHealth.playerHealth == 2 && rand <= 40f){
+            Instantiate(PowerUp, this.transform.position, this.transform.rotation);
+        } else if (thePlayerHealth.playerHealth == 4 && rand <= 20f){
+            Instantiate(PowerUp, this.transform.position, this.transform.rotation);
+        }
+        Destroy(gameObject);
     }
 }

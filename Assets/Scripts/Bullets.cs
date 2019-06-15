@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullets : MonoBehaviour
+public class Bullets
 {
     private GameObject thisBulletobject;
     public float bulletVelocity = 15f;
@@ -17,12 +17,12 @@ public class Bullets : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void Update()
+    public void Update(float DeltaTime)
     {
         if (thisBulletobject != null)
         {
             Vector3 transformation = new Vector3(0, 0, 0);
-            float transformationVelocity = bulletVelocity * Time.deltaTime;
+            float transformationVelocity = DeltaTime * bulletVelocity;
             switch (direction)
             {
                 case PlayerShoot.SHOOTING_DIRECTION.UP:
