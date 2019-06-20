@@ -23,7 +23,7 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timeBetweenShots++;
+        timeBetweenShots += Time.deltaTime * 50f;
         SHOOTING_DIRECTION dir = Input.GetKey(KeyCode.RightArrow) ? SHOOTING_DIRECTION.RIGHT :
                                  Input.GetKey(KeyCode.LeftArrow) ? SHOOTING_DIRECTION.LEFT :
                                  Input.GetKey(KeyCode.UpArrow) ? SHOOTING_DIRECTION.UP :

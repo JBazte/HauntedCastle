@@ -28,7 +28,8 @@ public class EnemyShoot : MonoBehaviour
     private EnemyMovement shotToPlayer;
     private Scene theScene;
     private string sceneName;
-    void Start(){
+    void Start()
+    {
         theScene = SceneManager.GetActiveScene();
         shotToPlayer = GetComponent<EnemyMovement>();
         sceneName = theScene.name;
@@ -37,14 +38,18 @@ public class EnemyShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.deltaTime == 0f){
+        if (Time.deltaTime == 0f)
+        {
             timeBetweenShots = 70f;
         }
 
-        if(sceneName == "Level4"){
-            if(shotToPlayer.followPlayer){
-                timeBetweenShots++;
-                if(i > 2){
+        if (sceneName == "Level4")
+        {
+            if (shotToPlayer.followPlayer)
+            {
+                timeBetweenShots += Time.deltaTime * 50f;
+                if (i > 2)
+                {
                     i = 0;
                     timeBetweenShots = 0f;
                 }
@@ -59,17 +64,21 @@ public class EnemyShoot : MonoBehaviour
                     Instantiate(bulletPrefab6, transform.position, Quaternion.identity);
                     Instantiate(bulletPrefab7, transform.position, Quaternion.identity);
                     timeBetweenShots = 75f;
-                    i +=1; 
+                    i += 1;
                 }
-            } else {
-            timeBetweenShots = 70f;
+            }
+            else
+            {
+                timeBetweenShots = 70f;
             }
         }
-        else if(sceneName == "Level3")
+        else if (sceneName == "Level3")
         {
-            if(shotToPlayer.followPlayer){
-                timeBetweenShots++;
-                if(i > 2){
+            if (shotToPlayer.followPlayer)
+            {
+                timeBetweenShots += Time.deltaTime * 50f;
+                if (i > 2)
+                {
                     i = 0;
                     timeBetweenShots = 0f;
                 }
@@ -84,17 +93,21 @@ public class EnemyShoot : MonoBehaviour
                     Instantiate(bulletPrefab6, transform.position, Quaternion.identity);
                     Instantiate(bulletPrefab7, transform.position, Quaternion.identity);
                     timeBetweenShots = 48f;
-                    i +=1; 
+                    i += 1;
                 }
-            } else {
-            timeBetweenShots = 30f;
+            }
+            else
+            {
+                timeBetweenShots = 30f;
             }
         }
-        else if(sceneName == "Level2")
+        else if (sceneName == "Level2")
         {
-            if(shotToPlayer.followPlayer){
-                timeBetweenShots++;
-                if(i > 2){
+            if (shotToPlayer.followPlayer)
+            {
+                timeBetweenShots += Time.deltaTime * 50f;
+                if (i > 2)
+                {
                     i = 0;
                     timeBetweenShots = 0f;
                 }
@@ -109,17 +122,21 @@ public class EnemyShoot : MonoBehaviour
                     Instantiate(bulletPrefab6, transform.position, Quaternion.identity);
                     Instantiate(bulletPrefab7, transform.position, Quaternion.identity);
                     timeBetweenShots = 70f;
-                    i +=1; 
+                    i += 1;
                 }
-            } else {
+            }
+            else
+            {
                 timeBetweenShots = 70f;
             }
         }
-        else if(sceneName == "Level1")
+        else if (sceneName == "Level1")
         {
-            if(shotToPlayer.followPlayer){
-                timeBetweenShots++;
-                if(i > 2){
+            if (shotToPlayer.followPlayer)
+            {
+                timeBetweenShots += Time.deltaTime * 50f;
+                if (i > 2)
+                {
                     i = 0;
                     timeBetweenShots = 0f;
                 }
@@ -130,12 +147,14 @@ public class EnemyShoot : MonoBehaviour
                     Instantiate(bulletPrefab4, transform.position, Quaternion.identity);
                     Instantiate(bulletPrefab6, transform.position, Quaternion.identity);
                     timeBetweenShots = 70f;
-                    i +=1; 
+                    i += 1;
                 }
-            } else {
+            }
+            else
+            {
                 timeBetweenShots = 70f;
             }
         }
-        
+
     }
 }

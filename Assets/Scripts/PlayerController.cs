@@ -62,15 +62,18 @@ public class PlayerController : MonoBehaviour
             trail.gameObject.SetActive(false);
         }
 
-        if(specialDuration > 5f){
+        if (specialDuration > 5f)
+        {
             specialDuration = 5f;
         }
 
-        if(specialDuration == 5f && isReady == false){
+        if (specialDuration == 5f && isReady == false)
+        {
             isReady = true;
         }
-        
-        if(isReady == false){
+
+        if (isReady == false)
+        {
             spriteColorBar.color = Color.red;
             moveSpeed = 5;
         }
@@ -79,16 +82,16 @@ public class PlayerController : MonoBehaviour
             spriteColorBar.color = Color.green;
         }
 
-        if(Input.GetButtonDown("Jump") && isReady && effectActive == false)
+        if (Input.GetButtonDown("Jump") && isReady && effectActive == false)
         {
             StartCoroutine(waitForSound());
         }
-        
+
         if (Input.GetButton("Jump") && isReady)
         {
             GhostMode();
-        } 
-        
+        }
+
         if (!Input.GetButton("Jump"))
         {
             playerRenderer.color = new Color(255f, 255f, 255f, 255f);
@@ -99,7 +102,8 @@ public class PlayerController : MonoBehaviour
         sliderBar.value = specialDuration;
     }
 
-    private void Update() {
+    private void Update()
+    {
         if (Input.GetKey(KeyCode.D))
         {
             sprite.flipX = true;
@@ -109,20 +113,21 @@ public class PlayerController : MonoBehaviour
             sprite.flipX = false;
         }
 
-        if(!paused){
+        if (!paused)
+        {
             HUD.gameObject.SetActive(false);
             isActive = false;
             Time.timeScale = 1f;
         }
 
-        if (Input.GetKeyDown(KeyCode.P) && isActive == false)
+        if (Input.GetKeyDown(KeyCode.P) && isActive == false || Input.GetKeyDown(KeyCode.Escape) && isActive == false)
         {
             HUD.gameObject.SetActive(true);
             isActive = true;
             paused = true;
             Time.timeScale = 0f;
         }
-        else if (Input.GetKeyDown(KeyCode.P) && isActive == true)
+        else if (Input.GetKeyDown(KeyCode.P) && isActive == true || Input.GetKeyDown(KeyCode.Escape) && isActive == true)
         {
             HUD.gameObject.SetActive(false);
             isActive = false;
@@ -133,7 +138,8 @@ public class PlayerController : MonoBehaviour
 
     public void GhostMode()
     {
-        if(specialDuration > 0f){
+        if (specialDuration > 0f)
+        {
             specialDuration -= Time.deltaTime * 4f;
             playerRenderer.color = new Color(0f, 0f, 0f, 255f);
             this.gameObject.tag = "Ghost";
@@ -154,14 +160,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == ("Enemy"))
+        if (other.gameObject.tag == ("Enemy"))
         {
             ContactPoint2D contact = other.contacts[0];
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
             Vector3 pos = contact.point;
             //Instantiate(damagePrefab, pos, rot);
         }
-        
+
         if (other.gameObject.tag == "BulletToPlayer")
         {
             thePlayerHealth.playerHealth -= 1;
@@ -179,8 +185,10 @@ public class PlayerController : MonoBehaviour
         }
         effectActive = false;
     }
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.tag == "Item" && this.gameObject.tag == "Player"){
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Item" && this.gameObject.tag == "Player")
+        {
             thePlayerHealth.playerHealth += 1;
             sound.HelathUp.Play();
             Destroy(other.gameObject);
