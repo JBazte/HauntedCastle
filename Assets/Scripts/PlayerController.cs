@@ -165,12 +165,11 @@ public class PlayerController : MonoBehaviour
             ContactPoint2D contact = other.contacts[0];
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
             Vector3 pos = contact.point;
-            //Instantiate(damagePrefab, pos, rot);
         }
 
         if (other.gameObject.tag == "BulletToPlayer")
         {
-            thePlayerHealth.playerHealth -= 1;
+            DealDamage(1);
             Destroy(other.gameObject);
         }
     }

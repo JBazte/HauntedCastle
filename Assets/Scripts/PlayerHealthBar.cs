@@ -25,11 +25,12 @@ public class PlayerHealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (thePlayerHealth.playerHealth < 1){
+        if (thePlayerHealth.playerHealth < 1)
+        {
             StartCoroutine(Fading());
         }
 
-        if(thePlayerHealth.playerHealth > numHearts)
+        if (thePlayerHealth.playerHealth > numHearts)
         {
             thePlayerHealth.playerHealth = numHearts;
         }
@@ -55,8 +56,8 @@ public class PlayerHealthBar : MonoBehaviour
             }
         }
     }
-    
-    IEnumerator Fading()
+
+    public IEnumerator Fading()
     {
         Time.timeScale = 0f;
         anim.SetBool("Fade", true);
